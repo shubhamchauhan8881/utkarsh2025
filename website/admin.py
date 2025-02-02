@@ -15,7 +15,7 @@ admin.site.index_title = "UTKARH 2025"
 
 
 class EventsRegistrationsAdmin(admin.ModelAdmin):
-    list_display = ["event", "leader", "event__is_team_event", "team_members"]
+    list_display = ["event", "leader", "team_members"]
 
     def team_members(self, object):
         teams = models.TeamMembers.objects.filter(event = object)
