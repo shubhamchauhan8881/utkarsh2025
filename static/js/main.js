@@ -2,7 +2,10 @@
 
 $(document).ready(function(){
     const v1 = document.querySelector("#video1");
-    const v2 = document.querySelector("#video2")
+    const v2 = document.querySelector("#video2");
+    const audio = document.querySelector("#bg-audio");
+    audio.volume = 0.4
+
     v1.addEventListener("ended", ()=>{
         v1.setAttribute("hidden", true)
         v2.removeAttribute("hidden");
@@ -47,6 +50,21 @@ $(document).ready(function(){
         $("#form-overlay").toggleClass("hidden");
     });
 
+
+    $("#unmute-btn").on("click", (e)=>{
+        $("#unmute-btn").toggleClass("hidden")
+        $("#mute-btn").toggleClass("hidden");
+    
+        audio.muted = false
+        audio.play()
+    });
+
+    $("#mute-btn").on("click", (e)=>{
+        $("#unmute-btn").toggleClass("hidden")
+        $("#mute-btn").toggleClass("hidden");
+        
+        audio.pause()
+    });
     
 })
 
