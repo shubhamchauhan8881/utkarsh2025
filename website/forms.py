@@ -13,7 +13,7 @@ class RegisterForm(forms.Form):
     college_name = forms.CharField(required=True)
     course = forms.CharField(required=True)
     city = forms.CharField(required=True)
-    set_password = forms.CharField(required=True, min_length=8, widget=forms.PasswordInput())
+    set_password = forms.CharField(required=True, min_length=6, widget=forms.PasswordInput())
 
     def save(self):
         try:
@@ -24,11 +24,13 @@ class RegisterForm(forms.Form):
                 city = self.cleaned_data["city"],
                 course = self.cleaned_data["course"],
                 gender = self.cleaned_data["gender"],
+                phone = self.cleaned_data["mobile_no"],
+                college = self.cleaned_data["college_name"],
                 username = self.generateUtkarshId()
             )
             user.set_password(self.cleaned_data["set_password"])
             user.save()
-            return user.username
+            return user
         except:
             raise forms.ValidationError("Error creating account")
     
@@ -37,6 +39,13 @@ class RegisterForm(forms.Form):
         if models.CustomUser.objects.filter(email = email):
             raise forms.ValidationError("Email already registered.")
         return email
+    
+    def clean_mobile_no(self):
+        phone = self.cleaned_data["mobile_no"]
+        if len(phone) != 10 or phone[0] in ['0', '1', '2', '3', '4', '5']:
+            raise forms.ValidationError("Invalid Mobile no.")
+        return phone
+    
 
     def generateUtkarshId(self):
         attempts = 0
