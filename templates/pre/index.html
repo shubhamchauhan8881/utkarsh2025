@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/output.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400..700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class='h-screen overflow-hidden w-full relative'>
+        <div>
+            <video id="video1" class='absolute top-0 left-0 h-full w-full object-cover object-center' autoPlay muted>
+                <source src="{% static 'media/Videos/bg-1.mp4' %}" type='video/mp4'>
+                </source>
+            </video>
+
+            <video id="video2" class='absolute top-0 left-0 h-full w-full object-cover object-center' autoPlay muted
+                loop hidden>
+                <source src="{% static 'media/Videos/bg-2.mp4' %}" type='video/mp4'>
+                </source>
+            </video>
+        </div>
+
+
+        <div id="form-overlay"
+            class=" fixed z-20 top-0 left-0 h-full w-full bg-purple/10 flex justify-center items-center {% if register_success or form_error %} flex {% else %} hidden {% endif %}">
+            <div
+                class='w-[80%] max-w-3xl  h-5/6 shadow-md shadow-purple bg-white text-black overflow-y-scroll myscrollbar p-8 relative'>
+                <button onclick="closeOverlay()"
+                    class='absolute top-5 right-5 text-3xl text-red-600 cursor-pointer font-Sterion'
+                    id="about-close-btn">
+                    x
+                </button>
+
+                {% if register_success %}
+                <div class="">
+                    <img src="{% static 'media/reg_success.gif' %}" class="mx-auto" />
+                </div>
+
+                <div class="text-center">
+                    <h1 class="afacad text-2xl font-semibold text-center mt-8">Registration Successful!!</h1>
+                    <h1 class="afacad text-xl text-center mt-4">Your Utkarsh id: <span
+                            class="text-purple font-bold">{{utkarsh_id}}</span>
+                    </h1>
+
+                    <button onclick="closeOverlay()"
+                        class='bg-purple mt-8 text-white  font-AquireBold text-xl py-2 px-4 cursor-pointer hover:scale-105 duration-300 transition-all ease-in-out'>Okay</button>
+
+                </div>
+                {% else %}
+
+                <h1 class="font-Sterion text-2xl md:text-3xl lg:text-4xl text-purple text-center mt-8">UTKARSH'25</h1>
+                <h1 class="afacad text-md text-center mt-4">Register your account</h1>
+
+                <form method="post" action="#" class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 mb-16">
+                    {% csrf_token %}
+                    {% for field in register_form %}
+                    <div>
+                        {{ field.label_tag }}
+                        {{field}}
+                        {{ field.errors }}
+                    </div>
+                    {% endfor %}
+
+                    <button
+                        class='bg-purple bg text-white  font-AquireBold text-xl py-2 px-4 cursor-pointer hover:scale-105 duration-300 transition-all ease-in-out'>Register</button>
+                    <!-- <button type="button" onclick="closeOverlay()"
+                        class='border-2 text-red-600 border-red-600  font-AquireBold text-xl py-2 px-4 cursor-pointer hover:scale-105 duration-300 transition-all ease-in-out'>Close</button> -->
+
+                </form>
+
+                {% endif %}
+            </div>
+        </div>
+
+
+        <div id="main-overlay"
+            class='absolute hidden top-0 font-Sterion left-0 h-full w-full flex place-content-center backdrop-blur-[25px] text-white bg-[#FFFFFF03] transition-all duration-1000 ease-out'>
+            <div class="absolute left-[5svw] bottom-0 text-center h-full font-Zhabuki hover:text-purple content-center">
+                <button class='text-3xl lg:text-[3.5svw]  tracking-[4px] cursor-pointer vertical-text'
+                    id="about-btn">ABOUT</button>
+            </div>
+
+            <div
+                class="absolute right-[5svw] bottom-0 text-center h-full font-Zhabuki hover:text-purple content-center">
+                <button class='text-3xl lg:text-[3.5svw] tracking-[4px] cursor-pointer vertical-text'
+                    id="contact-btn">Contact
+                </button>
+            </div>
+
+            <div id="about"
+                class='bg-purple w-[60%] max-w-96 absolute -left-96 h-full z-10 flex items-start p-4 flex-col justify-center'>
+                <button id="about_close_btn" class='absolute top-10 right-10 text-3xl cursor-pointer' type="button">
+                    x
+                </button>
+                <h1 class='text-3xl md:text-[3svw] mb-4'>About</h1>
+                <p class='afacad text-xl'>
+                    Babu Banarasi Das Educational Group presents the annual event "Utkarsh 2025", to value the
+                    advancement
+                    in the arts, cultural pursuits, and athletics in addition to academics. One of our college's
+                    subtle
+                    nuances is the equal focus we give to every aspect of the student's development of their
+                    fundamental
+                    skills and personas.
+                </p>
+            </div>
+
+            <div class='bg-purple w-[60%] max-w-96 absolute -right-96 h-full flex items-start p-4 flex-col justify-center'
+                id="contact">
+                <button class='absolute top-10 right-10 text-3xl cursor-pointer' id="contact-close-btn">
+                    x
+                </button>
+                <h1 class='text-3xl md:text-[3svw] mb-4'>Contact</h1>
+                <p class='afacad text-xl'>
+                    Phone: +91 881868541
+                </p>
+                <p class='afacad text-xl'>
+                    Email: <a href='mailto:utkarsh.dbm@bbdu.ac.in'> utkarsh.dbm@bbdu.ac.in</a>
+                </p>
+            </div>
+
+            <div class='text-center flex flex-col items-center justify-evenly h-full'>
+                <div class=''>
+                    <h3 class='font-Cartesian text-[4svw]'>Countdown to the</h3>
+                    <h1 class='font-Sterion text-[9svw] leading-tight'>UTKARSH'25</h1>
+                    <p class='uppercase font-AquireLight'>Experience the Future Where Innovation Takes Flight</p>
+
+                    <div class='font-AquireBold uppercase flex text-xl gap-4 items-center justify-center mt-4'>
+                        <span>Feb 23</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" viewBox="0 0 32 24" fill="none">
+                            <path
+                                d="M28 12V14C28 15.102 27.102 16 26 16H11.996L12 12L4 18L12 24L11.996 20H26C29.309 20 32 17.305 32 14V12H28ZM4 10C4 8.895 4.898 8 6 8H20V12L27.992 6L20 0V4H6C2.691 4 0 6.688 0 10V12H4V10Z"
+                                fill="white" />
+                        </svg>
+                        <span>Feb 25</span>
+                    </div>
+                    <div class='mt-8' id="register-btn">
+                        <button
+                            class='text-purple bg-white text-xl py-2 px-4 cursor-pointer hover:scale-105 duration-300 transition-all ease-in-out'>Register</button>
+                    </div>
+                </div>
+
+
+
+                <div class='flex items-center justify-center gap-2'>
+                    <div class='h-[10.2svh] w-40'>
+                        <img src="{% static 'media/logo.png' %}" alt='' class='aspect-video h-full w-full' />
+                    </div>
+
+                    <div class='h-[10svh] w-18'>
+                        <img src="{% static 'media/bbdlogo.png' %}" alt='' class='aspect-auto h-full w-full' />
+                    </div>
+                </div>
+
+                <div class='text-lg'>
+                    <p class='font-Cartesian'>BBD City, Faizabad Road, Lucknow, Uttar Pradesh 226028</p>
+                    <p class='text-purple font-Cartesian'>Enjoy arts, cultural, e-sports, athletic and many more
+                        events in
+                        Utkarsh'25</p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

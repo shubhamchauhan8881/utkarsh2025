@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400..700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Cartesian";
+    src: url(../fonts/Cartesian-0W5Oo.otf);
+}
+
+@font-face {
+    font-family: "Sterion";
+    src: url(../fonts/Sterion.ttf);
+}
+
+
+@font-face {
+    font-family: "AquireLight";
+    src: url(../fonts/AquireLight.otf);
+}
+
+@font-face {            
+    font-family: "AquireBold";
+    src: url(../fonts/AquireBold.otf);
+}
+
+@font-face {
+    font-family: "Zhabuki";
+    src: url(../fonts/Zhabuki.otf);
+}
+.afacad{
+  font-family: "Afacad", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+input:not([type='file']), select{
+    @apply bg-[#EEEEEE] p-2 w-full outline-purple mt-1.5;
+}
+
+.errorlist{
+    @apply text-red-600 text-sm;
+}
+
+
+.myscrollbar::-webkit-scrollbar{
+    width: 5px;
+}
+.myscrollbar::-webkit-scrollbar-thumb{
+    background-color: #D300FF;
+}
+
+.vertical-text{
+    text-orientation:upright;
+    writing-mode: vertical-rl;
+}
