@@ -4,7 +4,7 @@ from django.contrib import admin
 from . import models
 from django.contrib.auth.admin import UserAdmin
 
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import CustomUserCreationForm
 from .models import CustomUser
 
 
@@ -25,7 +25,7 @@ class EventsRegistrationsAdmin(admin.ModelAdmin):
         return None
 
 class UserAdmin(UserAdmin):
-    form = CustomUserChangeForm
+    # form = CustomUserChangeForm
     model = CustomUser
     list_display = ("email", "is_staff", "is_active",)
     list_filter = ("email", "is_staff", "is_active",)

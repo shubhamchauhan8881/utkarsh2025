@@ -60,8 +60,8 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ("username","password","email")
 
 
-class CustomUserChangeForm(UserChangeForm):
+# class CustomUserChangeForm(UserChangeForm):
 
-    class Meta:
-        model = models.CustomUser
-        fields = ("username","password")
+#     class Meta:
+#         model = models.CustomUser
+#         fields = ("username","password")
