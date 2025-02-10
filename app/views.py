@@ -116,8 +116,9 @@ class EventRegSuccess(View):
 
 class EventsEnrollPageView(View):
     def get(self, request, eventname):
-        if not request.user.is_authenticated:    
-            return redirect(f"{reverse("loginpage")}?next={request.path}")
+        if not request.user.is_authenticated:
+            url = reverse("loginpage")
+            return redirect(f"{url}?next={request.path}")
 
         try:
             event = models.Events.objects.get(slug = eventname)
