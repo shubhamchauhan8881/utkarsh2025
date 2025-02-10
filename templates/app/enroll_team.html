@@ -1,0 +1,56 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-black h-svh grid grid-cols-1 md:grid-cols-2 overflow-y-scroll myscrollbar">
+    <div class="relative h-40 md:h-full">
+        <img src="{{event.image.url}}" class="h-full w-full object-cover" />
+
+        <button class="absolute top-4 left-4 font-bold text-white px-4 py-1.5 text-2xl afacad hover:text-[#8465FF]">
+
+            <a href="/events" class="flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                </svg>
+                Events
+            </a>
+        </button>
+    </div>
+    <div class="bg-black p-20 text-white flex flex-col items-stretch justify-center">
+
+        <div>
+            <h1 class="text-2xl md:text-4xl font-Sterion text-[#8465FF] ">{{event.title}}</h1>
+            <p class="afacad  md:text-xl mt-4">Register your team</p>
+        </div>
+        <form method="post" class="md:text-lg">
+            {% csrf_token %}
+            <div class="mt-12 space-y-4">
+                <div class="login-form-input afacad">
+                    <label>Team Name:</label>
+                    <input name="teamname" value="{{teamname}}" placeholder="Team Name" type="text" required />
+                </div>
+
+                <div class="login-form-input afacad">
+                    <label>Enter Utkarsh ID's of team members seperated by comma:</label>
+                    <input name="teamlist" value="{{teamlist}}" placeholder="UK2513, UK25879" type="text" required />
+                    <span class="text-sm">If alone just mention your own Utkarsh ID</span>
+                </div>
+                {% if error %}
+                <div class="mt-4 afacad text-red-500  font-medium">
+                    &Cross; {{error}}</div>
+                {% endif %}
+                <div>
+                    <button
+                        class="font-AquireBold uppercase bg-[#8465FF] text-white w-full max-w-40 py-2 shadow-[2px_5px_3px_#010BFD1F] ">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+</div>
+{% endblock %}

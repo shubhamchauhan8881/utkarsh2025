@@ -1,0 +1,95 @@
+{% load static %}
+<div id="popup-card" class="hidden grid md:grid-cols-2 gap-8 h-[90%] afacad pt-4 overflow-y-scroll noscrollbar">
+
+    <div class="grid grid-cols-3 grid-rows-6 gap-4 h-full *:bg-black *:rounded-lg *:overflow-hidden">
+        <div class="col-span-3 row-span-4">
+            <img id="popup-image-1" src="{% static 'media/djnight.jpeg' %}" alt="Gaming Event"
+                class="h-full aspect-video object-cover object-center" />
+        </div>
+        <div class="row-span-2 row-start-5">
+            <img id="popup-image-2" src="{% static 'media/djnight.jpeg' %}" alt="Gaming Event"
+                class="h-full aspect-video object-cover object-center" />
+        </div>
+        <div class="row-span-2 row-start-5">
+            <img id="popup-image-3" src="{% static 'media/djnight.jpeg' %}" alt="Gaming Event"
+                class="h-full aspect-video object-cover object-center" />
+        </div>
+        <div class="row-span-2 row-start-5">
+            <img id="popup-image-4" src="{% static 'media/djnight.jpeg' %}" alt="Gaming Event"
+                class="h-full aspect-video object-cover object-center" />
+        </div>
+    </div>
+
+
+    <div class="h-full md:overflow-y-scroll noscrollbar">
+        <h1 class="text-4xl font-bold" id="event-name"></h1>
+        <p class="text-[##555555] mt-2 text-xl" id="event-details"></p>
+
+
+        <h2 class="text-xl font-bold mt-4">Rules & Guidelines:</h2>
+        <div class="border border-gray-300 rounded-lg overflow-hidden">
+            <button onclick="toggleAccordion(1)"
+                class="w-full p-4 text-left bg-gray-200 hover:bg-gray-300 focus:outline-none flex justify-between items-center">
+                <span class="font-medium">General Rules</span>
+                <div id="arrow-down-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+
+                <div class="hidden" id="arrow-up-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                    </svg>
+
+                </div>
+            </button>
+            <div class="hidden p-4 bg-white event-description" id="accordion-1">
+            </div>
+        </div>
+
+        <div class="border border-gray-300 rounded-lg overflow-hidden mt-2">
+            <button onclick="toggleAccordion(2)"
+                class="w-full p-4 text-left bg-gray-200 hover:bg-gray-300 focus:outline-none flex justify-between items-center">
+                <span class="font-medium">Event Rules</span>
+                <div id="arrow-down-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+
+                <div class="hidden" id="arrow-up-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                    </svg>
+
+                </div>
+            </button>
+            <div class="hidden p-4 bg-white event-description" id="accordion-2">
+            </div>
+        </div>
+
+
+
+        <h2 class="text-xl font-semibold mt-4">Important Information:</h2>
+        <p class="text-[#555555] mt-2 text-lg font-medium leading-[26.67px] text-left">
+            <strong>Date:</strong> <span id="event-date"></span> <br />
+            <strong>Venue:</strong> <span id="event-venue"></span>
+        </p>
+
+
+        <button id="event-enroll" type="button"
+            class="mt-12 bg-[#8465FF] text-white py-2 px-10 font-AquireBold uppercase">
+            ENROLL
+        </button>
+
+        <button id="event-unenroll" type="button"
+            class="hidden mt-12 bg-red-500 text-white py-2 px-10 font-AquireBold uppercase">
+            UNENROLL
+        </button>
+    </div>
+</div>

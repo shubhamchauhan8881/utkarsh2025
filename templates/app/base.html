@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/output.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="{% static 'media/favicon1.png' %}">
+  <meta name="description"
+    content="Join Utkarsh 2025 at BBDU, Lucknow! Explore Future Tech with AI, robotics competitions, technical, cultural, sports events and much more." />
+  <meta name="keywords" content="Utkarsh 2025, Future Tech Fest, BBDU Fest, AI, Robotics, Tech Events, Lucknow Fest">
+  <link rel="canonical" href="https://www.bbd-utkarsh.org">
+  <meta property="og:title" content="Utkarsh 2025 - Future Tech Fest | BBDU Lucknow">
+  <meta property="og:description"
+    content="Experience Future Tech at Utkarsh 2025, BBDU's grand annual fest with AI, robotics, competitions, and cultural events.">
+  <meta property="og:image" content="{% static 'media/logo.png' %}">
+  <meta property="og:url" content="https://www.bbd-utkarsh.org">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  <title>UTKARSH'25 - Future Tech Fest | BBD Lucknow</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Utkarsh 2025 - Future Tech Fest",
+      "startDate": "2025-02-23",
+      "endDate": "2025-02-25",
+      "location": {
+        "@type": "Place",
+        "name": "Babu Banarasi Das University",
+        "address": "Lucknow, Uttar Pradesh, India"
+      },
+      "image": "https://www.bbd-utkarsh.org{% static 'media/logo.png' %}",
+      "description": "Utkarsh 2025 is the annual tech fest of BBDU, themed around Future Tech with AI, robotics, and competitions.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Babu Banarasi Das University",
+        "url": "https://www.bbdu.ac.in"
+      }
+    }
+  </script>
+</head>
+
+<body class="noscrollbar">
+  {% block content %}
+  {% endblock %}
+
+  <button onclick="hideSideNav()"
+    class="fixed z-20 right-4 bottom-4 text-slate-500 size-10 flex items-center justify-center rounded-full border border-white">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="size-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+    </svg>
+  </button>
+
+  <div id="sideNav" class="fixed right-0 z-50 bottom-0 h-full w-0 bg-[#B7FF64]  text-black rounded-l-lg">
+    <div class="text-xl font-medium space-y-4 overflow-x-hidden overflow-y-scroll h-full myscrollbar p-8">
+      <a href="/" class="border-b-2 cursor-pointer border-black group block">
+        <span class="relative block group-hover:left-[20%] duration-300 left-0">
+          Home
+        </span>
+      </a>
+      {% if request.user.is_authenticated %}
+      <a href="{% url 'profilepage' %}" class="border-b-2 cursor-pointer border-black group block">
+        <span class="relative block group-hover:left-[20%] duration-300 left-0">
+          My Profile
+        </span>
+      </a>
+      {% else %}
+      <a href="{% url 'loginpage' %}" class="border-b-2 cursor-pointer border-black group block">
+        <span class="relative block group-hover:left-[20%] duration-300 left-0">
+          Login
+        </span>
+      </a>
+      {% endif %}
+      <a href="{% url 'eventspage' %}" class="border-b-2 cursor-pointer border-black group block">
+        <span class="relative block group-hover:left-[20%] duration-300 left-0">
+          Events
+        </span>
+      </a>
+
+      <a href="#about" class="border-b-2 cursor-pointer border-black group block">
+        <span class="relative block group-hover:left-[20%] duration-300 left-0">
+          About
+        </span>
+      </a>
+
+      <a href="#throwback" class="border-b-2 cursor-pointer border-black group block">
+        <span class="relative block group-hover:left-[20%] duration-300 left-0">
+          Throwback
+        </span>
+      </a>
+
+      <a href="" class="border-b-2 cursor-pointer border-black group block">
+        <span class="relative block group-hover:left-[20%] duration-300 left-0">
+          Scheduler
+        </span>
+      </a>
+
+      <a href="" class="border-b-2 cursor-pointer border-black group block">
+        <span class="relative block group-hover:left-[20%] duration-300 left-0">
+          Rulebook
+        </span>
+      </a>
+    </div>
+
+
+    <button onclick="hideSideNav()"
+      class="absolute left-4 bottom-4 size-10 flex items-center justify-center rounded-full overflow-hidden border text-slate-500 border-white">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+        class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+      </svg>
+    </button>
+  </div>
+
+</body>
+{% block script %}
+{% endblock %}
+
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+<div id="" onclick="navigate('{% url 'eventspage' %}/{{e.slug}}')"
+    class="events-card cursor-pointer shrink-0  inline-block overflow-hidden group/cards relative even:w-[26rem] even:h-[20rem] w-[20rem] h-[26rem] even:bg-gradient-to-br bg-gradient-to-br from-[#E42C66] to-[#ED713C] rounded-xl">
+    <div
+        class="absolute bg-black/10 rounded-full size-96 group-even/cards:bottom-[50%] group-even/cards:left-[-50%]  group-odd/cards:bottom-[-50%] group-odd/cards:left-[-50%]">
+    </div>
+    <div
+        class="absolute  bg-black/10 rounded-full size-96 group-odd/cards:bottom-[50%] group-odd/cards:left-[50%] group-even/cards:bottom-[-50%] group-even/cards:right-[-50%]">
+    </div>
+
+    <div class="absolute top-8 group-odd/cards:left-8 group-even/cards:right-8">
+        <svg xmlns="http://www.w3.org/2000/svg" width="110" height="68" viewBox="0 0 110 68" fill="none">
+            <path d="M40.4299 7.86182H69.7152V60.4826H40.4299V7.86182Z" fill="#FF8AA2" />
+            <path
+                d="M42.2889 34.1725C42.2889 23.4811 47.3091 13.998 55.0254 7.86186C49.3547 3.3994 42.1962 0.703369 34.3868 0.703369C15.8851 0.703369 0.91724 15.6713 0.91724 34.1725C0.91724 52.6732 15.8851 67.6416 34.3863 67.6416C42.1958 67.6416 49.3542 64.9456 55.0254 60.4827C47.3091 54.4397 42.2889 44.8638 42.2889 34.1725Z"
+                fill="#FD6887" />
+            <path
+                d="M109.226 34.1725C109.226 52.6732 94.2584 67.6416 75.7572 67.6416C67.9478 67.6416 60.7893 64.9456 55.1182 60.4827C62.9276 54.3469 67.8551 44.8638 67.8551 34.1725C67.8551 23.4811 62.8344 13.998 55.1182 7.86186C60.7889 3.3994 67.9478 0.703369 75.7572 0.703369C94.2584 0.703369 109.227 15.7644 109.227 34.1725H109.226Z"
+                fill="#FD6887" />
+        </svg>
+    </div>
+
+    <div class="absolute bottom-12 left-8 right-8 ">
+        <div class="afacad">
+            <p class="text-2xl font-semibold uppercase">{{e.title}} Events</p>
+            <p class="text-xl tracking-widest"><span class="text-2xl">• • • •</span> 2648</p>
+        </div>
+
+        <div class="flex justify-between items-end mt-12">
+            <img src="{% static 'media/Path.png' %}" />
+            <p>2025</p>
+        </div>
+    </div>
+
+    <div
+        class="absolute transition-all duration-300 ease-out group-even/cards:rounded-b-lg text-center group-even/cards:-top-24 group-hover/cards:group-even/cards:-top-0 group-even/cards:left-20 group-even/cards:right-20 bg-black group-odd/cards:-right-24 group-odd/cards:top-20 group-odd/cards:bottom-20
+            group-odd/cards:rounded-l-lg group-odd/cards:card-vertical-text group-hover/cards:group-odd/cards:-right-0 p-2">
+        TAP TO EXPLORE
+    </div>
+</div>

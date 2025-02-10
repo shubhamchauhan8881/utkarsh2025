@@ -1,0 +1,18 @@
+<div
+    class="shrink-0 inline-block h-[330px] w-[215px] bg-gradient-to-tl  from-[#aaa9] via-[#aaa5] to-white/50 p-[0.5px] rounded-xl">
+    <div class="h-full w-full flex flex-col bg-[#020202] rounded-xl overflow-hidden">
+        <div class=" relative p-1.5 grow shrink-0">
+            <span class="absolute top-4 left-4 text-xs bg-[#9747FF] text-white px-4 py-1.5 rounded-full">
+                {{person.about}}
+            </span>
+            <img class="rounded-t-xl w-full h-full object-cover" src="{{person.image.url}}" alt="Shubham Singhania" />
+        </div>
+        <div class="text-center pb-2">
+            <h3
+                class="my-2 font-bold text-xl bg-gradient-to-r from-[#1C1C1C] via-white to-[#303030] bg-clip-text text-transparent">
+                {{person.name}}
+            </h3>
+            <a href="{{person.linkedin}}" target="_blank" class="text-gray-400 text-sm">LinkedIn</a>
+        </div>
+    </div>
+</div>

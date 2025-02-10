@@ -1,0 +1,269 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="bg-black text-white">
+    <div class="container">
+
+        {% include "components/hero.html" %}
+        <!-- events list -->
+        <div class="mt-8">
+            <div>
+                <h2 class="font-Sterion text-right w-4/12 lg:w-3/12 text-2xl md:text-4xl xl:text-5xl">
+                    Events <br>List</h2>
+                <div class="mt-4 grid md:grid-cols-2">
+                    <p class="afacad text-xl lg:text-2xl xl:text-3xl md:col-start-2">
+                        Experience a thrilling array of events, from mind-bending coding competitions to electrifying
+                        dance
+                        performances, and
+                        showcase your talents on a stage that embraces innovation.
+                    </p>
+                </div>
+                <div class="text-[#8465FF] text-xl md:text-3xl lg:text-4xl font-Sterion lg:space-y-4 my-8 lg:my-16">
+                    <p>PREPARE TO BE AMAZED</p>
+                    <p class="text-right lg:text-center">UNFORGETTABLE MOMENTS GUARANTEED</p>
+                </div>
+            </div>
+            <!-- events cards -->
+            <div>
+                <div class="text-right">
+                    <a href="{% url 'eventspage' %}">
+                        <button
+                            class="p-4 inline-flex justify-center items-center gap-2 text-2xl hover:text-[#8465FF] duration-300">SEE
+                            ALL
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+
+                <div class="whitespace-nowrap myscroll flex items-center gap-8 overflow-x-scroll pb-2">
+                    {% for e in event_category %}
+                    {% include "components/MainEventCard.html" %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- throwback -->
+        <a name="throwback"></a>
+        {% include "components/throwback.html" %}
+
+        <!-- about-->
+        <div class="mt-8">
+            <a name="about"></a>
+            <div>
+                <h2 class="font-Sterion text-right w-5/12 md:w-4/12 lg:w-3/12 text-2xl md:text-4xl xl:text-5xl">
+                    About <br>Utkarsh
+                </h2>
+                <div class="text-[#8465FF] text-2xl md:text-4xl lg:text-5xl text-right font-Sterion mt-12">
+                    Utkarsh: Feel the Rush
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="grid lg:grid-cols-12 lg:grid-rows-7 gap-4 h-full w-full *:rounded-lg">
+                    <div
+                        class="lg:col-span-6 lg:row-span-4 bg-gradient-to-l from-[#F9CDC3] to-[#FACEFB] grid place-content-center p-12">
+                        <img src="{% static 'media/logo-no-bg.png' %}"
+                            class="h-full w-full object-contain object-center" />
+                    </div>
+                    <div
+                        class="lg:col-span-6 lg:row-span-3 lg:col-start-7 bg-[#C0FF77] text-black p-6 afacad text-xl xl:text-3xl">
+                        Utkarsh, the annual fest of <b>Babu Banarasi Das Educational Group</b>, is a celebration of
+                        <b>creativity,
+                            innovation, and youth.</b>
+                        A vibrant tapestry <b>of cultural performances, exhilarating competitions, and intellectual
+                            pursuits</b>, Utkarsh provides a
+                        unique platform for students to <b>showcase their talents, explore their passions, and connect
+                            with
+                            the wider community.</b>
+                    </div>
+                    <div
+                        class="lg:col-span-3 lg:row-span-4 lg:col-start-7 lg:row-start-4 bg-[#F3554A] text-white p-6 afacad text-xl xl:text-2xl">
+                        Over the years, Utkarsh has evolved into a <b>much-anticipated event</b>, attracting students
+                        from
+                        across the region. It
+                        fosters a <b>spirit of camaraderie</b>, <b>encourages healthy competition</b>, and provides a
+                        <b>valuable
+                            opportunity for personal and
+                            professional growth.</b>
+                    </div>
+
+                    <div
+                        class="lg:col-span-3 lg:row-span-4 lg:col-start-10 lg:row-start-4 hidden lg:block overflow-hidden">
+                        <a href="{% if request.user.is_authenticated %}/logout {% else %}/register {% endif %}"
+                            class="block size-full group relative bg-gradient-to-b {% if request.user.is_authenticated %} from-[#EC2139] to-[#94291E] hover:shadow-[#94291E] {% else %} from-[#303EFF] to-[#303EFF] hover:shadow-[#303EFF] {% endif %}  hover:shadow-lg">
+                            {% if request.user.is_authenticated %}
+                            <div
+                                class="inline-flex gap-1 absolute top-6 right-6 group-hover:right-[50%] duration-300 ease-in-out">
+                                <svg class="size-8" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                                        fill="white" />
+                                </svg>
+                                <svg class="size-8" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                                        fill="white" />
+                                </svg>
+                                <svg class="size-8" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                                        fill="white" />
+                                </svg>
+                            </div>
+                            <div class="absolute bottom-6 right-6">
+
+                                <p class="text-4xl lg:text-5xl font-Sterion uppercase flex flex-col items-start">
+                                    <span>LOG</span>
+                                    <span>out</span>
+                                </p>
+                            </div>
+                            {% else %}
+                            <div
+                                class="inline-flex gap-1 absolute top-6 left-6 group-hover:left-[50%] duration-300 ease-in-out">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-10">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-10">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-10">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+                            </div>
+
+                            <div class="absolute bottom-6 right-6">
+                                <p class="text-3xl xl:text-5xl font-Sterion uppercase flex flex-col items-start">
+                                    <span>RE</span>
+                                    <span>GI</span>
+                                    <span>ST</span>
+                                    <span>ER</span>
+                                    <span class="afacad font-bold relative -left-2">NOW</span>
+                                </p>
+                            </div>
+                            {% endif %}
+                        </a>
+                    </div>
+
+                    <div
+                        class=" h-32 text-white relative -bottom-10 -rotate-3 lg:hidden overflow-hidden hover:shadow-xl hover:shadow-[#7530ff]">
+                        <a href="{% if request.user.is_authenticated %}/logout{% else %}/register{% endif %}"
+                            class="{% if request.user.is_authenticated %} bg-[#EC2139] {% else %} bg-[#303EFF]{% endif %} group h-full block">
+                            <div class="flex gap-1 absolute top-4 left-4  group-hover:left-10 duration-300 ease-in-out">
+                                {% if request.user.is_authenticated %}
+                                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                                        fill="white" />
+                                </svg>
+                                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                                        fill="white" />
+                                </svg>
+                                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                                        fill="white" />
+                                </svg>
+                                {% else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+                                {% endif %}
+
+                            </div>
+                            <div class="absolute right-4 top-4">
+                                {% if request.user.is_authenticated %}
+                                <p class="font-Sterion text-2xl">Log<br>Out</p>
+                                {% else %}
+                                <p class="font-Sterion text-2xl">Register</p>
+                                <p class="afacad text-5xl leading-6 font-medium ">Now</p>
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+
+                    <div
+                        class="lg:col-span-6 lg:row-span-3 lg:row-start-5 bg-gradient-to-l from-[#CAD0FF] to-[#E3E3E3] z-10 font-Sterion text-2xl lg:text-4xl text-black uppercase flex flex-col gap-4 justify-between p-6">
+                        <p class="text-right">Ascend</p>
+                        <p class="text-center">Evolve</p>
+                        <p class="text-left ">Ignite</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- dj night -->
+    <div class="mt-8 relative h-screen">
+        <div class="h-full w-full">
+            <img src="{% static 'media/djnight.jpeg' %}" class="size-full object-cover" />
+        </div>
+        <div class="absolute top-0 w-full z-10">
+            <h2 class="font-Sterion text-right w-5/12 md:w-4/12 lg:w-3/12 p-4 text-2xl md:text-4xl xl:text-5xl">
+                EDM DJ<br>Night
+            </h2>
+        </div>
+        <div class="absolute top-0 size-full bg-[#00000080] p-8">
+            <div class="absolute top-0 left-0 bottom-0  w-full flex items-end justify-center">
+                <img src="{% static 'media/Ticket Design.png' %}" class="h-[60%] md:h-[70%] lg:h-[80%]" />
+            </div>
+        </div>
+    </div>
+    <!-- footer websiite team -->
+    <div class="container mt-8">
+        <!-- website team -->
+        <div>
+            <h2
+                class="font-Sterion text-right w-5/12 md:w-4/12 lg:w-3/12 p-4 text-2xl md:text-4xl xl:text-5xl uppercase">Website<br>team</h2>
+            <div class="text-[#8465FF] my-10 lg:my-20 text-xl md:text-3xl lg:text-5xl xl:text-6xl font-Sterion">
+                <p class="text-left">The website crew:</p>
+                <p class="text-right">Bringing the magic</p>
+            </div>
+
+            <div class="flex items-center justify-center gap-4 flex-wrap">
+                {% for person in website_team %}
+                {% include "components/teamCard.html" %}
+                {% endfor %}
+            </div>
+        </div>
+        <!-- website team ends -->
+        {% include "components/footer.html" %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    const countdownDate = new Date("February 23, 2025 00:00:00").getTime();
+    startCountdown(countdownDate);
+</script>
+{% endblock %}
+
+</html>

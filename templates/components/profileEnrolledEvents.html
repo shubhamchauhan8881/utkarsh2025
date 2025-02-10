@@ -1,0 +1,63 @@
+<div class="bg-[#E4E7FF] flex flex-col md:flex-row gap-4 md:gap-4 lg:gap-12 relative">
+    <div class="bg-[#8465FF] w-full md:w-1/12 flex items-center justify-center">
+        <P class="text-xl md:text-2xl p-2 uppercase text-white font-semibold writing-normal md:writing-lr" >
+            {{enrolled_event.event.parent_SubEventsCategory.parent_EventCategory}}
+        </P>
+    </div>
+    <div class="w-full md:w-11/12 text-xl flex flex-col gap-4 p-4">
+        <p class="font-bold text-2xl col-span-2">{{enrolled_event.event.title}}</p>
+        <div class="flex gap-8">
+            <div>
+                <p class="text-base">Event Type</p>
+                <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                    {% if enrolled_event.event.is_team_event %}Team{% else %}Solo{% endif %}
+                </p>
+            </div>
+
+            <div>
+                <p class="text-base">Date</p>
+                <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                    {{enrolled_event.event.event_date}}
+                </p>
+            </div>
+        </div>
+
+        <div class="flex gap-8">
+            <div class="grow">
+                <p class="text-base">Venue</p>
+                <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                    {{enrolled_event.event.venu}}
+                </p>
+            </div>
+
+            {% if enrolled_event.event.is_team_event %}
+            <div>
+                <p class="text-base">Teammates</p>
+                <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                    {% for m in team_members %}<span>{{m.user.first_name}}</span>{% endfor %}
+                </p>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="shrink-0 flex flex-col gap-4 items-stretch justify-center p-4">
+        <div class="size-40 overflow-hidden mx-auto">
+            <img src="{{ enrolled_event.event.image.url }}" class="aspect-square">
+        </div>
+        <button class="bg-[#8465FF] hover:shadow hover:shadow-[#8465FF] py-1 text-white w-40 mx-auto">
+            <a href="/events/{{enrolled_event.event.slug}}/unenroll/{{enrolled_event.id}}">
+                Unenroll
+            </a>
+        </button>
+    </div>
+
+    <div class="hidden md:block absolute top-0 bottom-0 right-[30%] w-10 border-[#3D5685]/20 z-10 border-r-4 border-dashed">
+    </div>
+
+    <div class="hidden md:block absolute -top-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
+    </div>
+    <div class="hidden md:block absolute -bottom-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
+    </div>
+</div>

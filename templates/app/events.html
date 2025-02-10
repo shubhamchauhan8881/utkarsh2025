@@ -1,0 +1,236 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-[#000000] text-white container py-4">
+    <!-- events list -->
+    <div class="">
+        <div>
+            <h2 class="font-Sterion text-right w-3/12 text-2xl md:text-4xl xl:text-5xl">
+                Events <br>List
+            </h2>
+            <div class="grid md:grid-cols-2 mt-2 lg:mt-0">
+                <p class="afacad text-xl lg:text-2xl xl:text-3xl col-start-2">
+                    Experience a thrilling array of events, from mind-bending coding competitions to electrifying
+                    dance
+                    performances, and
+                    showcase your talents on a stage that embraces innovation.
+                </p>
+            </div>
+            <div class="text-[#8465FF] text-xl md:text-3xl lg:text-4xl font-Sterion space-y-4 my-8 lg:my-16">
+                <p>PREPARE TO BE AMAZED</p>
+                <p class="text-right lg:text-center">UNFORGETTABLE MOMENTS GUARANTEED</p>
+            </div>
+        </div>
+        <!-- events cards -->
+        <div>
+            <div class="text-right">
+                <a href="/">
+                    <button
+                        class="p-4 inline-flex justify-center items-center gap-2 text-2xl hover:text-[#8465FF] duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
+                        </svg>
+                        GO BACK
+                    </button>
+                </a>
+            </div>
+
+            <div class="flex gap-4 justify-between flex-col lg:flex-row">
+
+                <div class="lg:w-[15%] w-full">
+                    <div class="lg:inline-block bg-[#CAD0FE] text-black rounded-xl p-6">
+                        <div class="flex items-center justify-start gap-4 ">
+                            <svg class="size-8" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23.8823 7.67641H1.70588C1.25345 7.67641 0.819556 7.49669 0.499641 7.17677C0.179726 6.85686 0 6.42296 0 5.97053C0 5.5181 0.179726 5.0842 0.499641 4.76429C0.819556 4.44438 1.25345 4.26465 1.70588 4.26465H23.8823C24.3348 4.26465 24.7687 4.44438 25.0886 4.76429C25.4085 5.0842 25.5882 5.5181 25.5882 5.97053C25.5882 6.42296 25.4085 6.85686 25.0886 7.17677C24.7687 7.49669 24.3348 7.67641 23.8823 7.67641ZM39.2353 7.67641H32.4118C31.9593 7.67641 31.5254 7.49669 31.2055 7.17677C30.8856 6.85686 30.7059 6.42296 30.7059 5.97053C30.7059 5.5181 30.8856 5.0842 31.2055 4.76429C31.5254 4.44438 31.9593 4.26465 32.4118 4.26465H39.2353C39.6877 4.26465 40.1216 4.44438 40.4415 4.76429C40.7614 5.0842 40.9412 5.5181 40.9412 5.97053C40.9412 6.42296 40.7614 6.85686 40.4415 7.17677C40.1216 7.49669 39.6877 7.67641 39.2353 7.67641Z"
+                                    fill="#111224" />
+                                <path
+                                    d="M28.1471 11.9412C26.9662 11.9412 25.8118 11.591 24.83 10.935C23.8481 10.2789 23.0829 9.34642 22.631 8.25543C22.1791 7.16445 22.0608 5.96397 22.2912 4.80578C22.5216 3.6476 23.0902 2.58375 23.9252 1.74875C24.7602 0.913746 25.8241 0.345102 26.9823 0.114726C28.1404 -0.115651 29.3409 0.00258695 30.4319 0.454487C31.5229 0.906386 32.4554 1.67165 33.1114 2.65351C33.7675 3.63537 34.1176 4.78972 34.1176 5.97059C34.1176 7.55409 33.4886 9.07273 32.3689 10.1924C31.2492 11.3121 29.7306 11.9412 28.1471 11.9412ZM28.1471 3.41177C27.641 3.41177 27.1462 3.56184 26.7254 3.84301C26.3047 4.12417 25.9767 4.52381 25.783 4.99137C25.5893 5.45893 25.5387 5.97343 25.6374 6.46979C25.7361 6.96615 25.9798 7.42209 26.3377 7.77995C26.6956 8.13781 27.1515 8.38151 27.6479 8.48025C28.1442 8.57898 28.6587 8.52831 29.1263 8.33463C29.5938 8.14096 29.9935 7.81299 30.2746 7.39219C30.5558 6.9714 30.7059 6.47668 30.7059 5.97059C30.7059 5.29195 30.4363 4.6411 29.9564 4.16123C29.4765 3.68136 28.8257 3.41177 28.1471 3.41177ZM39.2353 24.7353H17.0588C16.6064 24.7353 16.1725 24.5556 15.8526 24.2356C15.5327 23.9157 15.3529 23.4818 15.3529 23.0294C15.3529 22.577 15.5327 22.1431 15.8526 21.8232C16.1725 21.5033 16.6064 21.3235 17.0588 21.3235H39.2353C39.6877 21.3235 40.1216 21.5033 40.4415 21.8232C40.7614 22.1431 40.9412 22.577 40.9412 23.0294C40.9412 23.4818 40.7614 23.9157 40.4415 24.2356C40.1216 24.5556 39.6877 24.7353 39.2353 24.7353ZM8.52941 24.7353H1.70588C1.25345 24.7353 0.819556 24.5556 0.499641 24.2356C0.179726 23.9157 0 23.4818 0 23.0294C0 22.577 0.179726 22.1431 0.499641 21.8232C0.819556 21.5033 1.25345 21.3235 1.70588 21.3235H8.52941C8.98184 21.3235 9.41574 21.5033 9.73565 21.8232C10.0556 22.1431 10.2353 22.577 10.2353 23.0294C10.2353 23.4818 10.0556 23.9157 9.73565 24.2356C9.41574 24.5556 8.98184 24.7353 8.52941 24.7353Z"
+                                    fill="#111224" />
+                                <path
+                                    d="M12.7941 29C11.6132 29 10.4589 28.6498 9.47699 27.9938C8.49514 27.3377 7.72987 26.4053 7.27797 25.3143C6.82607 24.2233 6.70784 23.0228 6.93821 21.8646C7.16859 20.7064 7.73723 19.6426 8.57223 18.8076C9.40724 17.9726 10.4711 17.4039 11.6293 17.1736C12.7875 16.9432 13.9879 17.0614 15.0789 17.5133C16.1699 17.9652 17.1024 18.7305 17.7584 19.7123C18.4145 20.6942 18.7647 21.8486 18.7647 23.0294C18.7647 24.6129 18.1356 26.1316 17.0159 27.2513C15.8962 28.371 14.3776 29 12.7941 29ZM12.7941 20.4706C12.288 20.4706 11.7933 20.6207 11.3725 20.9018C10.9517 21.183 10.6237 21.5826 10.43 22.0502C10.2364 22.5178 10.1857 23.0323 10.2844 23.5286C10.3832 24.025 10.6269 24.4809 10.9847 24.8388C11.3426 25.1966 11.7985 25.4404 12.2949 25.5391C12.7912 25.6378 13.3057 25.5871 13.7733 25.3935C14.2409 25.1998 14.6405 24.8718 14.9217 24.451C15.2028 24.0302 15.3529 23.5355 15.3529 23.0294C15.3529 22.3508 15.0833 21.6999 14.6034 21.2201C14.1236 20.7402 13.4727 20.4706 12.7941 20.4706Z"
+                                    fill="#111224" />
+                            </svg>
+                            <span class="font-Sterion text-2xl">Filter</span>
+                        </div>
+
+                        <ul
+                            class="flex overflow-x-scroll myscrollbar lg:grid lg:grid-cols-2 mt-10 gap-4 afacad w-full ">
+                            <li>
+                                <a href="{% url 'eventspage' %}">
+                                    <button
+                                        class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
+                                        <div
+                                            class="size-16 p-3 rounded-xl {% if request.path == '/events' %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %} shadow-lg shadow-[#00000040]">
+                                            <svg class="size-full" viewBox="0 0 49 48" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M45.8333 0H3.16667C2.45942 0 1.78115 0.280951 1.28105 0.781048C0.780951 1.28115 0.5 1.95942 0.5 2.66667V45.3333C0.5 46.0406 0.780951 46.7189 1.28105 47.219C1.78115 47.7191 2.45942 48 3.16667 48H45.8333C46.5406 48 47.2189 47.7191 47.719 47.219C48.2191 46.7189 48.5 46.0406 48.5 45.3333V2.66667C48.5 1.95942 48.2191 1.28115 47.719 0.781048C47.2189 0.280951 46.5406 0 45.8333 0ZM21.8333 42.6667H5.83333V26.6667H21.8333V42.6667ZM21.8333 21.3333H5.83333V5.33333H21.8333V21.3333ZM43.1667 42.6667H27.1667V26.6667H43.1667V42.6667ZM43.1667 21.3333H27.1667V5.33333H43.1667V21.3333Z"
+                                                    fill="#6563FF" />
+                                            </svg>
+
+                                        </div>
+                                        <span>All</span>
+                                    </button>
+                                </a>
+                            </li>
+
+                            {% for category in event_categories %}
+                            <li>
+                                <a href="{% url 'eventspage' %}/{{category.slug}}">
+                                    <button
+                                        class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
+                                        <div
+                                            class="size-16 p-3 rounded-xl  {% if category.slug in request.path %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %} shadow-lg shadow-[#00000040]">
+                                            <img src="{% if category.image %} category.image.url {% endif %}"
+                                                class="aspect-square h-full object-contain" />
+                                        </div>
+                                        <span class="break-words">{{category.title}}</span>
+                                    </button>
+                                </a>
+                            </li>
+                            {% endfor %}
+                            <hr style="border: 1px dashed black;" class="col-span-2 my-4" />
+
+                            <li>
+                                <a href="{% url 'eventspage' %}?filter=solo">
+                                    <button
+                                        class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
+                                        <svg class="size-16" viewBox="0 0 68 68" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="68" height="68" rx="10" fill="#E2E2E4" />
+                                            <path
+                                                d="M34 34C40.6006 34 46 28.5999 46 22C46 15.4001 40.6006 10 34 10C27.3994 10 22 15.4001 22 22C22 28.5999 27.3994 34 34 34ZM34 40C26.0503 40 10 44.0503 10 52V58H58V52C58 44.0503 41.9497 40 34 40Z"
+                                                fill="black" />
+                                        </svg>
+
+                                        <span>Solo</span>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'eventspage' %}?filter=team">
+                                    <button
+                                        class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
+                                        <svg class="size-16" viewBox="0 0 68 68" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="68" height="68" rx="10" fill="#E2E2E4" />
+                                            <path
+                                                d="M55.1572 42.6041C49.9835 40.6421 50.2959 41.4294 50.2959 37.7929C50.2959 35.4435 51.4581 36.3058 52.1954 31.8319C52.4829 30.0699 52.7203 31.2446 53.3326 28.4203C53.6576 26.9457 53.1077 26.8332 53.1827 26.1334C53.2452 25.4336 53.3077 24.7963 53.4326 23.3591C53.5826 21.5596 51.983 16.8608 46.2595 16.8608C40.536 16.8608 38.9364 21.5596 39.0864 23.3591C39.1988 24.8088 39.2738 25.4336 39.3363 26.1334C39.3988 26.8332 38.8614 26.9457 39.1863 28.4203C39.7987 31.2446 40.0361 30.0574 40.3235 31.8319C41.0608 36.3058 42.2106 35.456 42.2106 37.7929C42.2106 39.4674 42.5979 40.1673 40.3485 41.2295C41.0234 41.4669 41.8107 41.7543 42.7604 42.1167C49.5586 44.7036 49.3962 47.2154 49.5711 48.4026C49.6961 49.2149 49.7586 55.6882 49.7836 58.0001H61.9929C61.9929 58.0001 61.9929 47.9402 61.8054 46.7655C61.668 45.8408 60.4308 44.6161 55.1572 42.6041Z"
+                                                fill="black" />
+                                            <path
+                                                d="M46.6217 58C46.6217 58 46.6217 56.2379 46.5967 54.201C46.5717 51.8766 46.5093 49.2023 46.3843 48.4025C46.1968 47.2153 44.5973 45.6282 37.8115 43.0414C36.8743 42.6915 36.087 42.404 35.3997 42.1541C31.2382 40.6795 31.5382 40.1921 31.5382 36.1557C31.5382 33.119 33.0378 35.0935 33.9875 29.3325C34.3624 27.0581 34.6623 28.5702 35.4496 24.9336C35.8745 23.0341 35.1622 22.8841 35.2497 21.9719C35.3372 21.0596 35.4247 20.2473 35.5746 18.3853C35.7746 16.0734 33.7126 10 26.3145 10C18.9165 10 16.867 16.0609 17.0544 18.3853C17.2044 20.2473 17.2919 21.0596 17.3919 21.9719C17.4793 22.8841 16.767 23.0216 17.1919 24.9336C17.9917 28.5702 18.2916 27.0581 18.6665 29.3325C19.6163 35.0935 21.1034 33.119 21.1034 36.1557C21.1034 40.8545 21.5158 40.5045 14.83 43.0414C8.04429 45.6282 6.44471 47.2153 6.25726 48.4025C6.00732 49.9146 6.00732 58 6.00732 58H46.6217Z"
+                                                fill="black" />
+                                        </svg>
+                                        <span>Team</span>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="lg:w-9/12">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 ">
+
+                        {% for i in e %}
+                        <div id="events-card-{{i.slug}}"
+                            class=" max-h-[26rem] mx-auto flex flex-col bg-gradient-to-b group  text-black afacad text-lg cursor-pointer hover:from-[#B7FF64] hover:to-[#B7FF64] duration-300 ease-in-out transition-all from-[#E3E3E3] to-[#CAD0FF] rounded-2xl p-4 max-w-64">
+                            <div class="rounded-2xl overflow-hidden relative">
+                                <img src="{{ i.image.url }}" class="h-full aspect-[4/3] w-full" />
+                                <span
+                                    class="absolute top-4 left-4 rounded-full py-0.5 text-sm px-4 bg-[#CAD0FF] group-hover:bg-[#FFD43B]">
+                                    {% if i.is_team_event %} Team {% else %} Solo {% endif %}</span>
+                            </div>
+                            <div class="flex grow justify-center flex-col">
+                                <p>
+                                    {{ i.parent_SubEventsCategory }}
+                                </p>
+                                <p class="text-3xl">
+                                    {{i.title}}
+                                </p>
+                                <p class="text-sm my-1 grow">
+                                    {{i.details}}
+                                </p>
+                                <p class="text-sm mt-0.5">
+                                    Date: {{i.event_date}}
+                                </p>
+                            </div>
+
+                            <div class="text-right lg:opacity-0 group-hover:opacity-100 duration-300">
+                                <button type="button" onclick="ShowEventPopUp(`{{i.slug}}`)"
+                                    class="bg-black text-white inline-flex rounded-full items-center py-0.5 px-8 text-sm gap-1">
+                                    Explore
+                                    <svg class="size-3" viewBox="0 0 12 12" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1.65576 1.34424H10.3442M10.3442 1.34424V10.0327M10.3442 1.34424L1.65576 10.0327"
+                                            stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="eventPopup" class="fixed h-screen top-[200%] left-0 w-full p-5 z-[50]">
+
+        <div class="h-full w-full max-w-5xl mx-auto bg-white text-black rounded-lg p-5">
+
+            <div class="text-right h-[10%]">
+                <button onclick="hideEventPopUp()"
+                    class=" inline-flex justify-center items-center gap-2 md:text-2xl hover:text-[#8465FF] duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
+                    </svg>
+                    GO BACK
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 h-[90%]" id="popup-skeleton-loader">
+                <div class="grid grid-cols-3 grid-rows-6 gap-4 h-full *:bg-black/15 *:rounded-xl *:overflow-hidden">
+                    <div class="skeleton col-span-3 row-span-4">
+                    </div>
+                    <div class="skeleton row-span-2 row-start-5">
+                    </div>
+                    <div class="skeleton row-span-2 row-start-5">
+                    </div>
+                    <div class="skeleton row-span-2 row-start-5">
+                    </div>
+                </div>
+
+                <div id="pop-skeleton-loader" class="h-full overflow-y-scroll noscrollbar">
+                    <div class="skeleton text-4xl font-bold w-[40%] bg-black/15 h-10"></div>
+                    <div class="skeleton text-4xl font-bold w-full bg-black/15 h-52 mt-10"></div>
+                    <div class="skeleton text-4xl font-bold w-[40%] bg-black/15 h-10 mt-10"></div>
+
+                    <div class="skeleton mt-12 bg-[#8465FF]/50 h-10 w-[20%]"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h-[90%] content-center hidden" id="popup-skeleton-error">
+                <p class="text-center text-red-600 text-3xl">Error</p>
+            </div>
+
+            {% include "components/PopUpCard.html" %}
+            {% csrf_token %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Countdown Timer</title>
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Timer Container */
+        #timer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Glassmorphism Effect */
+        .number-container {
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Labels */
+        .label {
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* Sliding Animation */
+        .number {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .slide-out {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        .slide-in {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        .active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Countdown to April 6, 2025</h1>
+    <div id="timer">
+        <div class="time-box">
+            <div class="number-container">
+                <div class="number active" id="days">00</div>
+            </div>
+            <div class="label">Days</div>
+        </div>
+        <div class="time-box">
+            <div class="number-container">
+                <div class="number active" id="hours">00</div>
+            </div>
+            <div class="label">Hours</div>
+        </div>
+        <div class="time-box">
+            <div class="number-container">
+                <div class="number active" id="minutes">00</div>
+            </div>
+            <div class="label">Minutes</div>
+        </div>
+        <div class="time-box">
+            <div class="number-container">
+                <div class="number active" id="seconds">00</div>
+            </div>
+            <div class="label">Seconds</div>
+        </div>
+    </div>
+
+    <script>
+        function startCountdown(targetDate) {
+            function updateTimer() {
+                const now = new Date().getTime();
+                const timeLeft = targetDate - now;
+
+                if (timeLeft <= 0) {
+                    document.getElementById("timer").innerHTML = "Time's up!";
+                    clearInterval(interval);
+                    return;
+                }
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                updateNumber("days", days);
+                updateNumber("hours", hours);
+                updateNumber("minutes", minutes);
+                updateNumber("seconds", seconds);
+            }
+
+            function updateNumber(id, value) {
+                const container = document.getElementById(id);
+                const currentValue = container.innerText;
+
+                if (currentValue !== value.toString()) {
+                    // Create new number element
+                    const newNumber = document.createElement("div");
+                    newNumber.classList.add("number", "slide-in");
+                    newNumber.textContent = value;
+
+                    // Append new number above the old one
+                    container.parentElement.appendChild(newNumber);
+
+                    // Animate new number down and old number further down
+                    setTimeout(() => {
+                        newNumber.classList.add("active");
+                        container.classList.add("slide-out");
+                    }, 50);
+
+                    // Remove old number after animation
+                    setTimeout(() => {
+                        container.remove();
+                        newNumber.classList.remove("slide-in");
+                        newNumber.setAttribute("id", id);
+                    }, 500);
+                }
+            }
+
+            updateTimer();
+            const interval = setInterval(updateTimer, 1000);
+        }
+
+        const countdownDate = new Date("April 6, 2025 00:00:00").getTime();
+        startCountdown(countdownDate);
+    </script>
+
+</body>
+
+</html>

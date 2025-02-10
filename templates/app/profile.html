@@ -1,0 +1,299 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="grid lg:grid-cols-12 lg:grid-rows-9 gap-4 afacad bg-[#000000] text-white container min-h-screen pt-4">
+
+    <div class="lg:col-span-3 lg:row-span-3">
+        <h2 class="font-Sterion text-right w-4/12 lg:w-full text-2xl md:text-4xl xl:text-5xl">
+            Profile <br>Area
+        </h2>
+    </div>
+    <div
+        class=" h-32 text-white relative -bottom-10 -rotate-3 lg:hidden overflow-hidden hover:shadow-xl hover:shadow-[#7530ff] rounded-lg">
+        <a href="/logout" class=" bg-[#EC2139] group h-full block">
+            <div class="flex gap-1 absolute top-4 left-4  group-hover:left-10 duration-300 ease-in-out">
+
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+            </div>
+            <div class="absolute right-4 top-4">
+                <p class="font-Sterion text-2xl">Log<br>Out</p>
+            </div>
+        </a>
+    </div>
+
+    <div
+        class="lg:col-span-7 lg:row-span-2 lg:col-start-4 lg:row-start-1 z-10 bg-gradient-to-r from-[#FFEFBA] to-[#FFFFFF] text-black px-12 py-4 rounded-lg">
+
+        <div class="flex gap-4 text-lg  flex-wrap">
+            <div class="w-20 xl:w-36 shrink-0">
+                <div class="rounded-full overflow-hidden w-full">
+                    <img src="{% static 'media/image.jpeg' %}" class="h-full aspect-square object-cover object-top" />
+                </div>
+                <p class="font-medium text-center">Welcome {{request.user.username}}!!</p>
+            </div>
+            <div class="flex gap-4 text-sm lg:text-base  flex-wrap">
+                <div class="space-y-2 lg:mt-0">
+                    <p><b>Utkarsh ID :</b> {{request.user.username}}</p>
+                    <p><b>Name:</b> {{request.user.first_name}}</p>
+                    <p><b>Email:</b> {{request.user.email}}</p>
+                    <p><b>Phone No.:</b> {{request.user.phone}}</p>
+                    <p><b>Gender:</b> {{request.user.gender}}</p>
+                </div>
+                <div class="space-y-2">
+                    <p><b>College:</b> {{request.user.college_name}}</p>
+                    <p><b>Course:</b> {{request.user.course}}</p>
+                    <p><b>City:</b> {{request.user.city}}</p>
+                    <p><b>Accomodation:</b> {% if accomodation %} Yes {% else %} No {% endif %}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="lg:col-span-6 lg:row-span-2 lg:col-start-7 lg:row-start-4  bg-gradient-to-r from-[#3F2B96] to-[#A8C0FF] p-4 rounded-lg">
+        <p class="text-3xl mb-2 font-medium"> Want Accommodation?</p>
+        <p>Food and accommodation charges (if preferred): <b>500/-</b> per person for three days.</p>
+        <p>NOTE: Accomodation is not available for Lucknow localites.</p>
+        <form method="post" action="/accomodation" class="mt-2">
+            {% csrf_token %}
+            <div class="py-2 space-x-2">
+                <label>
+                    <input type="radio" class="peer" hidden name="accommodation" value="yes" {% if accomodation %}
+                        checked {% endif %}>
+                    <span
+                        class="peer-checked:bg-[#303EFF] text-xl py-1 cursor-pointer px-8 border border-white afacad">Yes</span>
+                </label>
+
+                <label>
+                    <input type="radio" class="peer" hidden name="accommodation" value="no" {% if not accomodation %}
+                        checked {% endif %}>
+                    <span
+                        class="peer-checked:bg-[#303EFF] text-xl py-1 cursor-pointer px-8 border border-white afacad">No</span>
+                </label>
+            </div>
+            <button class="bg-[#8465FF] py-1.5 px-4 mt-2">Confirm</button>
+
+        </form>
+    </div>
+
+    <div
+        class="lg:col-span-3 lg:row-span-4 lg:col-start-7 lg:row-start-6  bg-gradient-to-b from-[#D3CCE3] to-[#E9E4F0] text-black p-4 md:max-h-96 overflow-y-scroll myscrollbar rounded-lg">
+        <p class="text-3xl mb-2 font-medium">Payments Details</p>
+        <div class="mt-2 text-lg space-y-2">
+            <p class="font-bold">-> This registration is provisional.</p>
+            <p class="font-bold">-> Registration fees are to be submitted at the venue.</p>
+            <p class="">-> The registration amount other than SPORTS and INFORMAL category is <b>Rs. 200/-</b> per
+                participant.</p>
+            <p>-> Registration for all Fine Arts events, excluding Photography, will be conducted at the registration
+                desk.
+            </p>
+            <p class="">-> Registration for all Fine Arts events, excluding Photography, will be conducted at the
+                registration desk.
+            </p>
+            <p class=""><b>NOTE</b>: A caution deposit of <b>Rs.1000/-</b> has to be paid by each team which will be
+                refunded after adjusting the cost of
+                damages if any. (FOR SPORTS only)
+            </p>
+        </div>
+    </div>
+
+    <div
+        class="lg:col-span-3 lg:row-span-4 lg:col-start-10 lg:row-start-6 min-h-40 bg-gradient-to-b text-black p-4 from-[#C9D6FF] to-[#E2E2E2] lg:max-h-96 overflow-y-scroll myscrollbar rounded-lg relative">
+        <p class="text-3xl mb-2 font-medium">Payments Details</p>
+        <table class="w-full mt-4">
+            <tr>
+                <th class="text-left">Type</th>
+                <th class="text-right">Amount</th>
+            </tr>
+            {% for s in summary.items %}
+            <tr>
+                <td class="text-left">{{s.0}}</td>
+                <td class="text-right">{{s.1}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="absolute left-4 right-4 bottom-4 flex justify-between font-bold border-t border-black">
+            <span>Total</span>
+            <span>{{total_amount}}</span>
+        </div>
+    </div>
+
+    <div
+        class="lg:col-span-6 lg:row-span-6 lg:col-start-1 lg:row-start-4 relative overflow-y-scroll myscrollbar lg:max-h-[36rem] ">
+        <p class="text-3xl mb-4 font-medium sticky top-0 left-0"> Enrolled Summary</p>
+        <div class=" text-black space-y-4">
+
+            {% for enrolled_event in solo_events %}
+            {% include 'components/profileEnrolledEvents.html' %}
+            {% endfor %}
+
+            {% for enrolled_event in team_events %}
+            <div class="bg-[#E4E7FF] flex flex-col md:flex-row gap-4 md:gap-4 lg:gap-12 relative">
+                <div class="bg-[#8465FF] w-full md:w-1/12 flex items-center justify-center">
+                    <P class="text-xl md:text-2xl p-2 uppercase text-white font-semibold writing-normal md:writing-lr" >
+                        {{enrolled_event.0.event.parent_SubEventsCategory.parent_EventCategory}}
+                    </P>
+                </div>
+                <div class="w-full md:w-11/12 text-xl flex flex-col gap-4 p-4">
+                    <p class="font-bold text-2xl col-span-2">{{enrolled_event.0.event.title}}</p>
+                    <div class="flex gap-8">
+                        <div>
+                            <p class="text-base">Event Type</p>
+                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                                Team
+                            </p>
+                        </div>
+            
+                        <div>
+                            <p class="text-base">Date</p>
+                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                                {{enrolled_event.0.event.event_date}}
+                            </p>
+                        </div>
+                    </div>
+            
+                    <div class="flex gap-8">
+                        <div class="grow">
+                            <p class="text-base">Venue</p>
+                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                                {{enrolled_event.0.event.venu}}
+                            </p>
+                        </div>
+            
+                        <div>
+                            <p class="text-base">Teammates</p>
+                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                                {% for m in enrolled_event.1 %}<span>{{m.user.first_name}}, </span>{% endfor %}
+                            </p>
+                        </div>
+                    </div>
+            
+                </div>
+            
+                <div class="shrink-0 flex flex-col gap-4 items-stretch justify-center p-4">
+                    <div class="size-40 overflow-hidden mx-auto">
+                        <img src="{{ enrolled_event.0.event.image.url }}" class="aspect-square">
+                    </div>
+                    <button class="bg-[#8465FF] hover:shadow hover:shadow-[#8465FF] py-1 text-white w-40 mx-auto">
+                        <a href="/events/{{enrolled_event.0.event.slug}}/unenroll/{{enrolled_event.0.id}}">
+                            Unenroll
+                        </a>
+                    </button>
+                </div>
+            
+                <div class="hidden md:block absolute top-0 bottom-0 right-[30%] w-10 border-[#3D5685]/20 z-10 border-r-4 border-dashed">
+                </div>
+            
+                <div class="hidden md:block absolute -top-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
+                </div>
+                <div class="hidden md:block absolute -bottom-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
+                </div>
+            </div>
+            {% endfor %}
+
+
+            {% for enrolled_event in is_member %}
+            <div class="bg-[#E4E7FF] flex flex-col md:flex-row gap-4 md:gap-4 lg:gap-12 relative">
+                <div class="bg-[#8465FF] w-full md:w-1/12 flex items-center justify-center">
+                    <P class="text-xl md:text-2xl p-2 uppercase text-white font-semibold writing-normal md:writing-lr" >
+                        {{enrolled_event.registration.event.parent_SubEventsCategory.parent_EventCategory}}
+                    </P>
+                </div>
+                <div class="w-full md:w-11/12 text-xl flex flex-col gap-4 p-4">
+                    <p class="font-bold text-2xl col-span-2">Member of team: {{enrolled_event.registration.team_name}}</p>
+                    <div class="flex gap-8">
+                        <div>
+                            <p class="text-base">Event Type</p>
+                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                                Team
+                            </p>
+                        </div>
+            
+                        <div>
+                            <p class="text-base">Date</p>
+                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                                {{enrolled_event.registration.event.event_date}}
+                            </p>
+                        </div>
+                    </div>
+            
+                    <div class="flex gap-8">
+                        <div class="grow">
+                            <p class="text-base">Venue</p>
+                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                                {{enrolled_event.registration.event.venu}}
+                            </p>
+                        </div>
+                    </div>
+            
+                </div>
+            
+                <div class="shrink-0 flex flex-col gap-4 items-stretch justify-center p-4">
+                    <div class="size-40 overflow-hidden mx-auto">
+                        <img src="{{ enrolled_event.registration.event.image.url }}" class="aspect-square">
+                    </div>
+                    <p class="text-xs text-center">Ask {{enrolled_event.registration.teamleader.first_name}} to unenroll</p>
+                </div>
+            
+                <div class="hidden md:block absolute top-0 bottom-0 right-[30%] w-10 border-[#3D5685]/20 z-10 border-r-4 border-dashed">
+                </div>
+            
+                <div class="hidden md:block absolute -top-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
+                </div>
+                <div class="hidden md:block absolute -bottom-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
+                </div>
+            </div>
+            {% endfor %}
+
+           
+        </div>
+    </div>
+
+    <div
+        class="lg:col-span-2 lg:row-span-3 lg:col-start-11 lg:row-start-1 relative bg-gradient-to-b from-[#EC2139] to-[#94291E] hover:shadow-[#94291E] hover:shadow-lg rounded-lg overflow-hidden">
+        <div class="inline-flex gap-1 absolute top-2 right-2 group-hover:right-[50%] duration-300 ease-in-out">
+            <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                    fill="white" />
+            </svg>
+            <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                    fill="white" />
+            </svg>
+            <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                    fill="white" />
+            </svg>
+        </div>
+        <div class="absolute bottom-2 right-2">
+            <a href="{% url 'logoutv' %}">
+                <p class="text-4xl font-Sterion uppercase flex flex-col items-start">
+                    <span>LOG</span>
+                    <span>out</span>
+                </p>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

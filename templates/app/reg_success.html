@@ -1,0 +1,62 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-black h-svh grid grid-cols-1 md:grid-cols-2 overflow-y-scroll myscrollbar">
+    <div class="relative h-40 md:h-auto">
+        <img src="{{registration.event.image.url}}" class="h-full w-full object-cover" />
+
+        <button class="absolute top-4 left-4 font-bold text-white px-4 py-1.5 text-2xl afacad hover:text-[#8465FF]">
+
+            <a href="/events" class="flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                </svg>
+                Events
+            </a>
+        </button>
+    </div>
+    <div class="bg-black p-10 lg:p-20 text-white flex flex-col items-stretch justify-center">
+        <div>
+            <h1 class="text-2xl md:text-4xl font-Sterion text-[#8465FF] ">Registration Successfull!!</h1>
+            {% if registration.event.is_team_event %}
+            <p class="afacad md:text-xl mt-4">Congratulations your team has successfully registered in
+                {{registration.event.title}}
+            </p>
+            <div class="mt-4">
+                <p class="md:text-lg font-semibold">Team Members:</p>
+                <table class="w-full text-left mt-2">
+                    <tr>
+                        <th>Utkarsh ID</th>
+                        <th>Name</th>
+                        <th>College</th>
+                    </tr>
+                    {% for person in team_members %}
+                    <tr>
+                        <td>{{person.user.username}}</td>
+                        <td>{{person.user.first_name}}</td>
+                        <td>{{person.user.college}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                </p>
+            </div>
+            {% else %}
+            <p class="afacad  md:text-xl mt-4">Congratulations have successfully registered in
+                {{registration.event.title}}
+            </p>
+            {% endif %}
+            <p class="mt-8">Don't forget to go through the Rule book</p>
+
+            <a href="/events">
+                <button
+                    class="mt-12 font-AquireBold uppercase  bg-[#8465FF] text-white w-full max-w-40 py-2 hover:shadow-md hover:shadow-[#8465FF]">Okay</button>
+            </a>
+        </div>
+
+
+    </div>
+</div>
+</div>
+{% endblock %}

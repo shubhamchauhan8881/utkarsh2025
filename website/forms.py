@@ -6,14 +6,14 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 
 class RegisterForm(forms.Form):
-    full_name = forms.CharField(max_length=100, required=True)
-    gender = forms.ChoiceField(choices=[("M","Male"),("F","Female"), ("Other","Other")], required=True)
-    email_id = forms.EmailField(required=True)
-    mobile_no = forms.CharField(required=True, min_length=10, max_length=10)
-    college_name = forms.CharField(required=True)
-    course = forms.CharField(required=True)
-    city = forms.CharField(required=True)
-    set_password = forms.CharField(required=True, min_length=6, widget=forms.PasswordInput())
+    full_name = forms.CharField(max_length=100,label="Full Name", required=True, widget=forms.TextInput(attrs={"placeholder":"Full Name"}))
+    gender = forms.ChoiceField(choices=[("NA","Select"),("M","Male"),("F","Female"), ("Other","Other")], required=True)
+    email_id = forms.EmailField(required=True, label="Email ID", widget=forms.EmailInput( attrs={"placeholder":"alexagupta@email.com"}))
+    mobile_no = forms.CharField(required=True, min_length=10, max_length=10, label="Mobile No:", widget=forms.TextInput(attrs={"placeholder":"0680740200"}))
+    college_name = forms.CharField(required=True,label="College Name", widget=forms.TextInput(attrs={"placeholder":"College Name"}))
+    course = forms.CharField(required=True, label="Course", widget=forms.TextInput(attrs={"placeholder":"e.g. BBA, B.Tech"}))
+    city = forms.CharField(required=True, label="City Name", widget=forms.TextInput(attrs={"placeholder":"City Name"}))
+    set_password = forms.CharField(required=True, min_length=6, widget=forms.PasswordInput(attrs={"placeholder":"Password"}), label="Password")
 
     def save(self):
         try:
@@ -46,6 +46,11 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError("Invalid Mobile no.")
         return phone
     
+    def clean_gender(self):
+        g = self.cleaned_data["gender"]
+        if g == "NA":
+            raise forms.ValidationError("Please select your gender.")
+        return g
 
     def generateUtkarshId(self):
         attempts = 0
@@ -60,6 +65,10 @@ class RegisterForm(forms.Form):
 
 
 
+
+# class TeamEnrollForm(forms.Form):
+#     team_name = forms.CharField(label="Team Name: ", required=True)
+#     team_members = forms.CharField(label="")
 
 
 class CustomUserCreationForm(UserCreationForm):

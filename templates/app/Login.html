@@ -1,0 +1,77 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-black h-svh grid md:grid-cols-2 overflow-y-scroll myscrollbar">
+    <button class="fixed z-30 top-4 left-4 font-bold text-white px-4 py-1.5 text-2xl afacad hover:text-[#8465FF]">
+
+        <a href="/" class="flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+            </svg>
+            Home
+        </a>
+    </button>
+
+    <div class="h-40 lg:h-full">
+        <img src="{% static 'media/cyber earth.gif' %}" class="h-full w-full object-cover" />
+    </div>
+
+    <div class="bg-black p-10 lg:p-20 h-full text-white flex flex-col items-stretch justify-center">
+
+        {% if request.user.is_authenticated %}
+        <div>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-Sterion text-[#8465FF] ">Utkarsh'25</h1>
+            <p class="afacad  text-xl mt-4">It seems you're already logged in. Please log out first to sign in to
+                another account.</p>
+
+            <div class="mt-8">
+                <a href="/logout">
+                    <button
+                        class="font-AquireBold uppercase bg-red-500 text-white w-full max-w-40 py-2 shadow-[2px_5px_3px_#010BFD1F] ">Logout
+                    </button>
+                </a>
+            </div>
+        </div>
+        {% else %}
+        <div class="text-center md:text-left">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-Sterion text-[#8465FF] ">Utkarsh'25</h1>
+            <p class="afacad  lg:text-xl mt-4">Sign in to your account</p>
+        </div>
+        <form method="post" class="text-lg">
+            {% csrf_token %}
+            <div class="mt-12 space-y-4">
+                <div class="login-form-input afacad">
+                    <label>Utkarsh Id</label>
+                    <input name="username" placeholder="UK25••••••" type="text" required minlength="4" maxlength="12"
+                        value="{{ukid}}" />
+                </div>
+
+                <div class="login-form-input afacad">
+                    <label>Password</label>
+                    <input name="password" placeholder="password" type="password" minlength="6" maxlength="16" />
+                </div>
+                {% if error %}
+                <div class="mt-4 afacad text-red-500  font-medium">
+                    &Cross; {{error}}</div>
+                {% endif %}
+                <div>
+                    <button
+                        class="font-AquireBold uppercase bg-[#8465FF] text-white w-full max-w-40 py-2 shadow-[2px_5px_3px_#010BFD1F] ">SIGN
+                        IN</button>
+                </div>
+            </div>
+
+
+            <p class="mt-8 afacad">
+                Don't have an account?
+                <a href="{% url 'registerpage' %}" class="text-[#8465FF]">Register here</a>
+            </p>
+        </form>
+        {% endif %}
+
+    </div>
+</div>
+</div>
+{% endblock %}

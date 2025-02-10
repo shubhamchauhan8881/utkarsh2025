@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/output.css' %}" />
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="h-screen relative"
+        style="background: url({% static 'media/Login-bg.png' %}); background-attachment: fixed; background-size:cover; background-repeat:no-repeat;">
+
+        <div class="size-full flex items-center justify-center backdrop-blur-md bg-black/60 pt-16 pb-4">
+
+            <a href="/">
+                <button
+                    class="flex items-center justify-center absolute top-4 left-4 font-bold text-white gap-2 px-4 py-1.5 text-2xl afacad hover:text-[#8465FF]">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                    </svg>
+                    Home
+                </button>
+            </a>
+
+            <div class='bg-white p-12 overflow-y-scroll h-full myscrollbar'>
+
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <img src="./assets/Main Image.png" alt="Gaming Event"
+                            class="w-[692px] h-[398px] rounded-tl-[20px] opacity-100" />
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold">Valorant</h1>
+                        <p class="text-gray-600 mt-2 text-[20px] font-medium leading-[26.67px] text-left">
+                            Gear up for an adrenaline-fueled clash! The Valorant Esports
+                            Tournament is calling all aspiring agents. Test your skills,
+                            strategize with your team, and dominate the battlefield.
+                        </p>
+
+                        <h2 class="text-xl font-bold mt-4">Rules & Guidelines:</h2>
+                        <h2 class="text-xl font-semibold mt-4">1.Objective:</h2>
+                        <ul
+                            class="list-disc pl-5 text-gray-600 mt-2 text-[20px] font-medium leading-[26.67px] text-left">
+                            <li>
+                                To foster a competitive and fair environment for Valorant players.
+                            </li>
+                            <li>
+                                To showcase exceptional teamwork, strategic prowess, and
+                                individual skill.
+                            </li>
+                            <li>To promote sportsmanship and healthy competition.</li>
+                        </ul>
+                        <h2 class="text-xl font-semibold mt-4">2.Eligibility:</h2>
+                        <ul
+                            class="list-disc pl-5 text-gray-600 mt-2 text-[20px] font-medium leading-[26.67px] text-left">
+                            <li>Open to all registered teams.</li>
+                            <li>Each team must consist of five (5) players.</li>
+                            <li>All players must possess a valid Riot Games account.</li>
+                        </ul>
+                        <h2 class="text-xl font-semibold mt-4">Important Information:</h2>
+                        <p class="text-gray-600 mt-2 text-[20px] font-medium leading-[26.67px] text-left">
+                            <strong>Date & Time:</strong> 23 Feb 2025, 11:00 AM <br />
+                            <strong>Venue:</strong> Room No. 516, 5th Floor, BBD University
+                        </p>
+                        <button class="mt-6 bg-indigo-600 text-white py-2 px-10 rounded hover:bg-indigo-700">
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

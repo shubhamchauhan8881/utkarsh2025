@@ -1,0 +1,137 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-black h-svh grid lg:grid-cols-2 overflow-y-scroll myscrollbar relative">
+
+    <button class="fixed z-30 top-4 left-4 font-bold text-white px-4 py-1.5 text-2xl afacad hover:text-[#8465FF]">
+
+        <a href="/" class="flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+            </svg>
+            Home
+        </a>
+    </button>
+
+    <div class="h-40 lg:h-full">
+        <img src="{% static 'media/cyber earth.gif' %}" class="h-full w-full object-cover" />
+
+    </div>
+    <div class="p-10 lg:p-20 text-white  bg-black flex flex-col items-stretch justify-center">
+
+        {% if register_success %}
+        <div>
+            <h1 class="text-4xl font-Sterion text-[#8465FF] ">Registration Successfull!!</h1>
+            <p class="afacad  text-xl mt-4">Congratulations your account has been created.</p>
+
+            <p class="mt-8">Your Utkarsh ID is: {{utkarsh_id}} </p>
+            <p class="mt-4">Check your email for futher details.</p>
+
+            <a href="/">
+                <button
+                    class="mt-12 font-AquireBold uppercase  bg-[#8465FF] text-white w-full max-w-40 py-2 shadow-md shadow-[#8465FF]">Okay</button>
+            </a>
+        </div>
+        {% else %}
+        <div class="text-center lg:text-left">
+            <h1 class="text-3xl lg:text-5xl font-Sterion text-[#8465FF]">Utkarsh'25</h1>
+            <p class="afacad  lg:text-xl mt-4">Create account to get your Utkarsh ID</p>
+        </div>
+        <form method="post" class="afacad text-lg mt-12">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {% for field in register_form %}
+                <div>
+                    {{ field.label_tag }}
+                    {{field}}
+                    {{ field.errors }}
+                </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="mt-2 flex items-start justify-start gap-2">
+                <input type="checkbox" required style="display: inline; width: auto; width: 20px; height: 20px;" />
+                <span class="mt-0.5">
+                    I have read and agree to all Rules, Regulations, Guidelines, and Terms & Conditions for UTKARSH'25.
+                    <button onclick="toggleRnG()"><b class="text-[#8465FF]">Click Here To Read</b></button>
+
+                </span>
+            </div>
+
+            <div class=" mt-8">
+                <button type="submit"
+                    class="font-AquireBold uppercase bg-[#8465FF] text-white w-full max-w-40 py-2 shadow-[2px_5px_3px_#010BFD1F] ">
+                    Register</button>
+            </div>
+
+            <p class="mt-8 afacad">
+                Already have an account?
+                <a href="{% url 'loginpage' %}" class="text-[#8465FF]">Login here</a>
+            </p>
+        </form>
+        {% endif %}
+    </div>
+
+    <div id="rng" class="fixed top-0 h-full w-full flex items-center justify-center z-50 p-5 hidden overflow-hidden">
+
+        <div class="bg-white rounded-lg h-full  w-full max-w-3xl afacad overflow-y-scroll p-8 noscrollbar relative">
+            <Div class="sticky right-0 top-0 text-black z-10 text-right">
+                <button onclick="toggleRnG()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </Div>
+            <p class="text-2xl font-medium">Registration Guidelines</p>
+            <div class="mt-4 text-lg">
+                <ul class="list-inside list-decimal space-y-2">
+                    <li>The registration portal for all the events is provided on the UTKARSH-2025 website.
+                        The participants must register online for the category they wish to participate.</li>
+                    <li>The interested Colleges or Institutions are requested to confirm their participation team
+                        list through email, latest
+                        by FEBRUARY 21, 2025.</span>.
+                    </li>
+                    <li>Outstation Colleges or Institutions must confirm their participation team through mail by
+                        FEBRUARY 21, 2025.</li>
+                    <li>
+                        The participating team must report at BBDEG Campus, Lucknow for in-person Registration on
+                        FEBRUARY 22, 2025 from
+                        12:30 PM to 06:00 PM at the Registration Help Desks set up in the campus.
+                    </li>
+
+                    <li>
+                        The remaining instructions will be given to the participants at the Registration Help Desk.
+                    </li>
+
+                    <li>
+                        All teams are mandatorily required to carry the following documents along with, failing which
+                        the teams may not be
+                        allowed to register:
+
+                        <ol class="list-inside list-disc ms-6">
+                            <li>Authority Letter issued by the Director/Principal/Dean of the respective
+                                Institute/College/Faculty with the name of
+                                all participants.</li>
+                            <li>
+                                Institute/College Identity Cards & Copy of Aadhar Card and Two passport size recent
+                                colored photographs. The
+                                registration fee is Rs. 200/- for external students per participants.
+                            </li>
+
+                            <li>
+                                Fooding & lodging charges (if opted for): Rs. 1000/- per participants for external
+                                students for entire event.
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

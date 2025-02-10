@@ -1,0 +1,263 @@
+{% load static %}
+<div class="grid lg:grid-cols-8 lg:grid-rows-9 gap-4 pt-4 *:rounded-xl">
+
+    <div class="lg:col-span-2 lg:row-span-2 lg:block flex justify-between items-start">
+        <h2 class="font-Sterion text-right text-2xl md:text-4xl xl:text-5xl">
+            utkarsh <br>fest'25
+        </h2>
+
+        <div class="lg:hidden">
+            <button onclick="hideSideNav()"
+                class="bg-[#B7FF64] rounded-lg py-2 px-4 text-black inline-flex items-center justify-start text-xl md:text-2xl gap-2 font-medium afacad">
+                <svg class="size-4 md:size-5" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_400_716)">
+                        <path
+                            d="M19.2273 3.97887H1.77273C0.790909 3.97887 0 3.20282 0 2.23944C0 1.27606 0.790909 0.5 1.77273 0.5H19.2273C20.2091 0.5 21 1.27606 21 2.23944C21 3.20282 20.2091 3.97887 19.2273 3.97887ZM21 10C21 9.03662 20.2091 8.26056 19.2273 8.26056H1.77273C0.790909 8.26056 0 9.03662 0 10C0 10.9634 0.790909 11.7394 1.77273 11.7394H19.2273C20.2091 11.7394 21 10.9634 21 10ZM21 17.7606C21 16.7972 20.2091 16.0211 19.2273 16.0211H1.77273C0.790909 16.0211 0 16.7972 0 17.7606C0 18.7239 0.790909 19.5 1.77273 19.5H19.2273C20.2091 19.5 21 18.7239 21 17.7606Z"
+                            fill="black" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_400_716">
+                            <rect width="21" height="19" fill="white" transform="translate(0 0.5)" />
+                        </clipPath>
+                    </defs>
+                </svg>
+                Menu
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="lg:col-span-3 lg:row-span-2 lg:col-start-3 text-xs xl:text-sm bg-[#282A2C] text-[#949BA1] p-4">
+        <p><span class="text-[#B580E4]">class </span><span class="text-[#EEC95F]">Utkarsh</span> : FutureTech {</p>
+        <p class="ps-4"><span class="text-[#B580E4]">private val</span> events = mutableListOf()</p>
+        <p class="ps-4"><span class="text-[#B580E4]">fun</span> <span class="text-[#EEC95F]">addEvent</span>(event:
+            <span class="text-[#B580E4]">Event</span>)
+            {events.add(event) }
+        </p>
+        <p class="ps-4"><span class="text-[#B580E4]">fun</span> <span class="text-[#EEC95F]">getEvents</span>()
+            = events.toList()</p>
+        <p class="ps-4"><span class="text-[#B580E4]">fun</span> <span
+                class="text-[#EEC95F]">findEventByName</span>(name: <span class="text-[#B580E4]">String</span>)
+            = events.find {
+            it.name == name }</p>
+        }
+        <p>
+            <span class="text-[#B580E4]">data class</span> <span class="text-[#EEC95F]">Event</span>(<span
+                class="text-[#B580E4]">val</span> name: String, <span class="text-[#B580E4]">val</span>
+            description: String, <span class="text-[#B580E4]">val</span>
+            date: String)
+        </p>
+    </div>
+
+
+
+    <div class="lg:col-span-3 lg:row-span-2 lg:col-start-6 text-[#8465FF] text-xl md:text-3xl font-Sterion">
+        <p class="text-left">Future Forward.</p>
+        <p class="text-right">Innovation Unleashed.</p>
+    </div>
+
+
+
+    <div class="lg:col-span-2 lg:row-span-4 lg:row-start-3 hidden lg:block bg-[#B7FF64] text-black p-4 afacad">
+        <button class="flex items-center text-2xl font-bold gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            Menu
+        </button>
+        <div class="mt-6 text-xl font-medium space-y-4">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'profilepage' %}" class="border-b-2 cursor-pointer border-black group block">
+                <span class="relative block group-hover:left-[40%] transition-all duration-300 ease-in left-0">
+                    My Profile
+                </span>
+            </a>
+            {% else %}
+            <a href="{% url 'loginpage' %}" class="border-b-2 cursor-pointer border-black group block">
+                <span class="relative block group-hover:left-[40%] transition-all duration-300 ease-in left-0">
+                    Login
+                </span>
+            </a>
+            {% endif %}
+            <a href="{% url 'eventspage' %}" class="border-b-2 cursor-pointer border-black group block">
+                <span class="relative block group-hover:left-[40%] transition-all duration-300 ease-in left-0">
+                    Events
+                </span>
+            </a>
+
+            <a href="#about" class="border-b-2 cursor-pointer border-black group block">
+                <span class="relative block group-hover:left-[40%] transition-all duration-300 ease-in left-0">
+                    About
+                </span>
+            </a>
+
+            <a href="#throwback" class="border-b-2 cursor-pointer border-black group block">
+                <span class="relative block group-hover:left-[40%] transition-all duration-300 ease-in left-0">
+                    Throwback
+                </span>
+            </a>
+
+            <a href="" class="border-b-2 cursor-pointer border-black group block">
+                <span class="relative block group-hover:left-[40%] transition-all duration-300 ease-in left-0">
+                    Scheduler
+                </span>
+            </a>
+
+            <a href="" class="border-b-2 cursor-pointer border-black group block">
+                <span class="relative block group-hover:left-[40%] transition-all duration-300 ease-in left-0">
+                    Rulebook
+                </span>
+            </a>
+        </div>
+    </div>
+
+
+    <div
+        class=" h-32 text-white relative -bottom-10 -rotate-3 lg:hidden overflow-hidden hover:shadow-xl hover:shadow-[#7530ff]">
+        <a href="{% if request.user.is_authenticated %}/logout{% else %}/register{% endif %}"
+            class="{% if request.user.is_authenticated %} bg-[#EC2139] {% else %} bg-[#303EFF]{% endif %} group h-full block">
+            <div class="flex gap-1 absolute top-4 left-4  group-hover:left-10 duration-300 ease-in-out">
+                {% if request.user.is_authenticated %}
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                {% else %}
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+                {% endif %}
+
+            </div>
+            <div class="absolute right-4 top-4">
+                {% if request.user.is_authenticated %}
+                <p class="font-Sterion text-2xl">Log<br>Out</p>
+                {% else %}
+                <p class="font-Sterion text-2xl">Register</p>
+                <p class="afacad text-5xl leading-6 font-medium ">Now</p>
+                {% endif %}
+            </div>
+        </a>
+    </div>
+
+    <div
+        class="lg:col-span-4 lg:row-span-4 lg:col-start-3 lg:row-start-3 md:h-96 lg:h-auto bg-white text-black flex flex-col items-start justify-center p-4 lg:p-8 relative overflow-hidden">
+
+        <div class="absolute -right-6 top-0 bottom-0 w-7/12">
+            <img src="{% static 'media/robot.png' %}" class="h-full aspect-auto ms-auto" />
+        </div>
+
+        <div class="h-12 md:h-16 flex gap-4">
+            <img src="{% static 'media/bbdlogo.png' %}" class="h-full aspect-auto" />
+            <img src="{% static 'media/logo1.jpg' %}" class="h-full aspect-auto" />
+        </div>
+        <div class="text-2xl md:text-5xl font-Sterion mt-4">
+            <p>Tech</p>
+            <p>Thrill</p>
+            <p>Evolved</p>
+        </div>
+        <p class="mt-3 lg:mt-6 text-lg md:text-2xl xl:text-3xl afacad font-semibold">A Event Worth Experiencing.</p>
+    </div>
+
+    <div
+        class="lg:col-span-2 lg:row-span-4 lg:col-start-7 lg:row-start-3 hidden lg:block  -rotate-12 origin-bottom-left overflow-hidden">
+        <a href="{% if request.user.is_authenticated %}/logout {% else %}/register {% endif %}"
+            class="block size-full group  bg-gradient-to-b {% if request.user.is_authenticated %} relative from-[#EC2139] to-[#94291E] hover:shadow-[#94291E] {% else %} from-[#303EFF] to-[#303EFF] hover:shadow-[#303EFF] {% endif %}  hover:shadow-lg">
+            {% if request.user.is_authenticated %}
+            <div class="inline-flex gap-1 absolute top-6 right-6 group-hover:right-[50%] duration-300 ease-in-out">
+                <svg class="size-8" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                <svg class="size-8" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                <svg class="size-8" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+            </div>
+            <div class="absolute bottom-6 right-6">
+
+                <p class="text-4xl lg:text-5xl font-Sterion uppercase flex flex-col items-start">
+                    <span>LOG</span>
+                    <span>out</span>
+                </p>
+            </div>
+            {% else %}
+            <div class="inline-flex gap-1 absolute top-6 left-6 group-hover:left-[50%] duration-300 ease-in-out">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="size-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="size-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="size-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </div>
+
+            <div class="absolute bottom-6 right-6">
+                <p class="text-3xl xl:text-5xl font-Sterion uppercase flex flex-col items-start">
+                    <span>RE</span>
+                    <span>GI</span>
+                    <span>ST</span>
+                    <span>ER</span>
+                    <span class="afacad font-bold relative -left-2">NOW</span>
+                </p>
+            </div>
+            {% endif %}
+        </a>
+    </div>
+    <div
+        class="lg:col-span-5 lg:row-span-3 lg:row-start-7 bg-gradient-to-r from-[#FFE897] to-[#FFB49C] text-black flex gap-8 flex-col p-4 relative">
+        <div class="afacad text-md md:text-2xl font-semibold flex justify-between items-center flex-wrap gap-2">
+            <p>Event Date: 23<sup>rd</sup> Feb - 25<sup>th</sup> Feb</p>
+            <p>Countdown Timer</p>
+        </div>
+        <p
+            class="text-4xl sm:text-5xl md:text-7xl lg:text-6xl font-Sterion tracking-tighter grow text-center content-center">
+            <span id="cd-days">15</span><span class="text-xl px-1 tracking-normal">Days</span>:
+            <span id="cd-hours">40</span><span class="text-xl px-1 tracking-normal">Hours</span><span
+                class="hidden xl:inline">:</span> <br class="xl:hidden">
+            <span id="cd-minutes">54</span><span class="text-xl px-1 tracking-normal">Mins</span>:
+            <span id="cd-seconds">20</span><span class="text-xl px-1 tracking-normal">Sec</span>
+        </p>
+    </div>
+
+    <div class="lg:col-span-3 lg:row-span-3 lg:col-start-6 lg:row-start-7 overflow-hidden">
+        <video muted autoplay loop class="size-full object-cover">
+            <source src="{% static 'media/motion.mp4' %}" />
+        </video>
+    </div>
+</div>
