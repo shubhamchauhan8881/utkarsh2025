@@ -177,7 +177,8 @@ class EventsEnrollPageView(View):
                     user = i
                 )
             registration_type = "team" if event.is_team_event else "solo"
-            return redirect(f"{reverse("eventspage")}/enroll/{registration_type}/success/{reg.id}")
+            url = reverse("eventspage")
+            return redirect(f"{url}/enroll/{registration_type}/success/{reg.id}")
 
 
 
