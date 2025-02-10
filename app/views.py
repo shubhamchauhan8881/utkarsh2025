@@ -255,8 +255,9 @@ class UnEnrollEvent(View):
 
 class UserProfileView(View):
     def get(self, request):
-        if not request.user.is_authenticated:    
-            return redirect(f"{reverse("loginpage")}?next={request.path}")
+        if not request.user.is_authenticated: 
+            url =reverse("loginpage")
+            return redirect(f"{url}?next={request.path}")
         
         context = {}
         payment = 0
