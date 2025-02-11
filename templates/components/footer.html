@@ -11,10 +11,13 @@
             <div>
                 <p class="font-semibold text-xl lg:text-2xl mb-2">Pages</p>
                 <ul class="lg:text-xl">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Events</a></li>
-                    <li><a href="">Scheduler</a></li>
-                    <li><a href="">Rule Book</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="#throwback">Throwback</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="/profile">Profile</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
