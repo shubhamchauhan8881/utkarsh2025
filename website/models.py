@@ -49,6 +49,9 @@ class AccomodationDetails(models.Model):
     is_paid = models.BooleanField(default=False)
     date_time = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.user.get_full_name()
+
 
 class Gallery(models.Model):
     title = models.CharField(null=True, blank=True, max_length=200)

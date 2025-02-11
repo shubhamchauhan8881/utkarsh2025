@@ -1,11 +1,12 @@
 from django.contrib import admin
-
-# Register your models here.
 from . import models
 from django.contrib.auth.admin import UserAdmin
-
 from .forms import CustomUserCreationForm
 from .models import CustomUser, TeamMembers
+from django.shortcuts import HttpResponse
+import csv
+
+
 
 admin.site.site_title = "UTKARSH 2025"
 admin.site.site_header = "UTKARSH Administration"
@@ -59,24 +60,119 @@ class EventsAdmin(admin.ModelAdmin):
     }
 
 
+
 class SoloEvRegAdming(admin.ModelAdmin):
     list_display = ["user", "event", "fee","payments_status", "date_time_registered"]
-    search_fields = ["user__username"]
+    search_fields = ["user__username", "event__title"]
     list_filter = ["event__parent_SubEventsCategory__parent_EventCategory", "event__parent_SubEventsCategory"]
-
+    actions = ["exportSoloReg"]
     
+    
+    @admin.action(description="Export")
+    def exportSoloReg(self, request, queryset):
+        response = HttpResponse(
+            content_type="text/csv",
+            headers={"Content-Disposition": 'attachment; filename="solo-registrations-data.csv"'},
+        )
+        writer = csv.writer(response)
+        writer.writerow(["Category", "Event Name","Utkarsh ID", "Participant Name", "Phone","Gender","Email", "College name","City","Course"])
+        temp = []
+        for each in queryset:
+            temp.append(
+                [
+                each.event.parent_SubEventsCategory.parent_EventCategory,
+                each.event.title,
+                each.user.username,
+                each.user.first_name,
+                each.user.phone,
+                each.user.gender,
+                each.user.email,
+                each.user.college,
+                each.user.city,
+                each.user.course,
+
+                ]
+            )
+        writer.writerows(temp)
+        return response
 
 
 class TeamEvRegAdming(admin.ModelAdmin):
     list_display = ["team_name", "teamleader","event", "team_members"]
     search_fields = ["teamleader__username","event__title"]
     list_filter = ["event__parent_SubEventsCategory__parent_EventCategory"]
-    
-    
 
-    def team_members(admin, object):
+    actions = ["export"]
+
+    def team_members(self, object):
         t = TeamMembers.objects.filter(registration = object)
-        return ",".join([x.user.username for x in t]) + f" ({str(len(t))} members)"
+        return ", ".join([x.user.first_name for x in t]) 
+
+    def export(self, request, queryset):
+        response = HttpResponse(
+            content_type="text/csv",
+            headers={"Content-Disposition": 'attachment; filename="tean-registrations-data.csv"'},
+        )
+        writer = csv.writer(response)
+        writer.writerow(["Category", "Event Name","Team Name","Team Leader","Teammates", "Phone","Gender","Email", "College name"," City","Course"])
+        temp = []
+
+        for each in queryset:
+            temp.append(
+                [
+                each.event.parent_SubEventsCategory.parent_EventCategory,
+                each.event.title,
+                each.team_name,
+                f"{each.teamleader.first_name} ({each.teamleader.username})",
+                self.team_members(each),
+                each.teamleader.phone,
+                each.teamleader.gender,
+                each.teamleader.email,
+                each.teamleader.college,
+                each.teamleader.city,
+                each.teamleader.course,
+
+                ]
+            )
+
+        writer.writerows(
+            temp
+        )
+        return response
+
+
+class AccomodationAdmin(admin.ModelAdmin):
+    list_display = ["user","user__gender","user__phone","user__college","fee","is_paid"]
+    actions = ["export"]
+
+    @admin.action(description="Export")
+    def export(self, request, queryset):
+        response = HttpResponse(
+            content_type="text/csv",
+            headers={"Content-Disposition": 'attachment; filename="accomodation-data.csv"'},
+        )
+        writer = csv.writer(response)
+        writer.writerow(["Utkarsh Id","Name", "Phone","Gender","Email", "College name"," City","Course"])
+        temp = []
+
+        for each in queryset:
+            temp.append(
+                [
+                    each.user.username,
+                    each.user.first_name,
+                    each.user.phone,
+                    each.user.gender,
+                    each.user.email,
+                    each.user.college,
+                    each.user.city,
+                    each.user.course,
+                ]
+            )
+
+        writer.writerows(
+            temp
+        )
+        return response
 
 
 
@@ -89,4 +185,4 @@ admin.site.register(models.TeamMembers)
 admin.site.register(models.SoloEventRegistrations, SoloEvRegAdming)
 admin.site.register(models.TeamEventRegistrations, TeamEvRegAdming)
 admin.site.register(models.WebsiteTeam)
-admin.site.register(models.AccomodationDetails)
+admin.site.register(models.AccomodationDetails, AccomodationAdmin)
