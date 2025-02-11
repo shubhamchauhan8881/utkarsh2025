@@ -6,7 +6,7 @@ from .models import CustomUser, TeamMembers
 from django.shortcuts import HttpResponse
 import csv
 
-
+from django.contrib import messages
 
 admin.site.site_title = "UTKARSH 2025"
 admin.site.site_header = "UTKARSH Administration"
@@ -59,7 +59,23 @@ class EventsAdmin(admin.ModelAdmin):
         "slug":["title"]
     }
 
+    list_filter = ["parent_SubEventsCategory__parent_EventCategory","registration_open"]
+    search_fields = ["title"]
+    list_display = ["category", "title","is_team_event", "registration_amount","registration_open"]
+    actions = ["close","open"]
 
+
+    def category(self, queryset):
+        return queryset.parent_SubEventsCategory.parent_EventCategory
+
+
+    @admin.action(description="Close Registration")
+    def close(self, request, queryset):
+        queryset.update(registration_open = False)
+
+    @admin.action(description="Open Registration")
+    def open(self, request, queryset):
+        queryset.update(registration_open = True)
 
 class SoloEvRegAdming(admin.ModelAdmin):
     list_display = ["user", "event", "fee","payments_status", "date_time_registered"]
