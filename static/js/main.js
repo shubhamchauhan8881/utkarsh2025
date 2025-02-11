@@ -125,9 +125,7 @@ const ShowEventPopUp = (eventname) => {
             $("#accordion-1").html(data.general_rules);
             $("#accordion-2").html(data.event_rules);
 
-
-
-            $("#event-description").html(data.description)
+            $("#event-details").html(data.details);
 
             $("#event-date").text(data.event_date);
             $("#event-venue").text(data.venue);
