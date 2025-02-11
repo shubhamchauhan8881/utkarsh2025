@@ -142,13 +142,17 @@ const ShowEventPopUp = (eventname) => {
                 .on("click", e=>{
                     window.location.href = `/events/${eventname}/unenroll/${data.is_enrolled}`;
                 });
-            }else{
 
-                 $("#event-unenroll").addClass("hidden");
-                $("#event-enroll").removeClass("hidden");
-                $("#event-enroll").on("click", (e)=>{
-                    window.location.href = `/events/enroll/${eventname}`;
-                })
+            }else{
+                $("#event-unenroll").addClass("hidden");
+                if(data.registration_open){
+                    $("#event-enroll").removeClass("hidden");
+                    $("#event-enroll").on("click", (e)=>{
+                        window.location.href = `/events/enroll/${eventname}`;
+                    });
+                }else{
+                    $("#event-enroll").addClass("hidden");
+                }
             }
 
             $("#popup-card").removeClass("hidden");
