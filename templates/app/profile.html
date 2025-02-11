@@ -68,7 +68,7 @@
     <div
         class="lg:col-span-6 lg:row-span-2 lg:col-start-7 lg:row-start-4  bg-gradient-to-r from-[#3F2B96] to-[#A8C0FF] p-4 rounded-lg">
         <p class="text-3xl mb-2 font-medium"> Want Accommodation?</p>
-        <p>Food and accommodation charges (if preferred): <b>500/-</b> per person for three days.</p>
+        <p>Food and accommodation charges (if preferred): <b>1000/-</b> per person for three days.</p>
         <p>NOTE: Accomodation is not available for Lucknow localites.</p>
         <form method="post" action="/accomodation" class="mt-2">
             {% csrf_token %}
@@ -98,7 +98,7 @@
         <div class="mt-2 text-lg space-y-2">
             <p class="font-bold">-> This registration is provisional.</p>
             <p class="font-bold">-> Registration fees are to be submitted at the venue.</p>
-            <p class="">-> The registration amount other than SPORTS and INFORMAL category is <b>Rs. 200/-</b> per
+            <p class="">-> The registration amount other than SPORTS category is <b>Rs. 200/-</b> per
                 participant.</p>
             <p>-> Registration for all Fine Arts events, excluding Photography, will be conducted at the registration
                 desk.
@@ -169,7 +169,7 @@
                     </div>
             
                     <div class="flex gap-8">
-                        <div class="grow">
+                        <div class="">
                             <p class="text-base">Venue</p>
                             <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 {{enrolled_event.0.event.venu}}
@@ -234,7 +234,7 @@
                     </div>
             
                     <div class="flex gap-8">
-                        <div class="grow">
+                        <div class="">
                             <p class="text-base">Venue</p>
                             <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 {{enrolled_event.registration.event.venu}}

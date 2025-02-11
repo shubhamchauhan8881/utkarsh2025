@@ -85,7 +85,7 @@
                                         class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
                                         <div
                                             class="size-16 p-3 rounded-xl  {% if category.slug in request.path %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %} shadow-lg shadow-[#00000040]">
-                                            <img src="{{category.image.url}}"
+                                            <img src="{% if category.image %} {{category.image.url}} {% endif %}"
                                                 class="aspect-square h-full object-contain" />
                                         </div>
                                         <span class="break-words">{{category.title}}</span>
