@@ -25,39 +25,17 @@
             </button>
         </div>
     </div>
-
-
-
-    <div class="lg:col-span-3 lg:row-span-2 lg:col-start-3 text-xs xl:text-sm bg-[#282A2C] text-[#949BA1] p-4">
-        <p><span class="text-[#B580E4]">class </span><span class="text-[#EEC95F]">Utkarsh</span> : FutureTech {</p>
-        <p class="ps-4"><span class="text-[#B580E4]">private val</span> events = mutableListOf()</p>
-        <p class="ps-4"><span class="text-[#B580E4]">fun</span> <span class="text-[#EEC95F]">addEvent</span>(event:
-            <span class="text-[#B580E4]">Event</span>)
-            {events.add(event) }
-        </p>
-        <p class="ps-4"><span class="text-[#B580E4]">fun</span> <span class="text-[#EEC95F]">getEvents</span>()
-            = events.toList()</p>
-        <p class="ps-4"><span class="text-[#B580E4]">fun</span> <span
-                class="text-[#EEC95F]">findEventByName</span>(name: <span class="text-[#B580E4]">String</span>)
-            = events.find {
-            it.name == name }</p>
-        }
-        <p>
-            <span class="text-[#B580E4]">data class</span> <span class="text-[#EEC95F]">Event</span>(<span
-                class="text-[#B580E4]">val</span> name: String, <span class="text-[#B580E4]">val</span>
-            description: String, <span class="text-[#B580E4]">val</span>
-            date: String)
-        </p>
+    
+    <div class="lg:col-span-3 lg:row-span-2 lg:col-start-3 text-xs xl:text-sm bg-[#282A2C] text-[#949BA1] overflow-hidden">
+        <video class="w-full h-full max-h-52 object-cover"  autoplay muted loop>
+            <source src="{% static 'media/clip1.mp4' %}"/>
+        </video>
     </div>
-
-
 
     <div class="lg:col-span-3 lg:row-span-2 lg:col-start-6 text-[#8465FF] text-xl md:text-3xl font-Sterion">
-        <p class="text-left">Future Forward.</p>
-        <p class="text-right">Innovation Unleashed.</p>
+        <p class="text-left">Embracing the future</p>
+        <p class="text-right">with technology</p>
     </div>
-
-
 
     <div class="lg:col-span-2 lg:row-span-4 lg:row-start-3 hidden lg:block bg-[#B7FF64] text-black p-4 afacad">
         <button class="flex items-center text-2xl font-bold gap-2">
