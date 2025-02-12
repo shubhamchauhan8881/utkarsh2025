@@ -224,8 +224,8 @@ class RegisterView(View):
             }
             t =  render_to_string('components/mail.html', context=context)
             send_mail(
-                subject="Subject: 🚀 Pre-Registration Confirmed for Utkarsh 2025!",
-                message="Pre Registration Successfull!",
+                subject="Subject: 🚀 Registration Confirmed for Utkarsh 2025!",
+                message="Registration Successfull!",
                 recipient_list=[ user.email ],
                 from_email= "website@bbd-utkarsh.org",
                 html_message= t,
