@@ -9,3 +9,5 @@ settings.py
 
 config.t
 
+mail.py
+registrations.csv

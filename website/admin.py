@@ -106,7 +106,6 @@ class SoloEvRegAdming(admin.ModelAdmin):
                 each.user.college,
                 each.user.city,
                 each.user.course,
-
                 ]
             )
         writer.writerows(temp)
@@ -158,7 +157,7 @@ class TeamEvRegAdming(admin.ModelAdmin):
 
 
 class AccomodationAdmin(admin.ModelAdmin):
-    list_display = ["user","user__gender","user__phone","user__college","fee","is_paid"]
+    list_display = ["user","fee","is_paid"]
     actions = ["export"]
 
     @admin.action(description="Export")
