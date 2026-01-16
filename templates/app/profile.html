@@ -138,7 +138,7 @@
             {% for enrolled_event in team_events %}
             <div class="bg-[#E4E7FF] flex flex-col md:flex-row gap-4 md:gap-4 lg:gap-12 relative">
                 <div class="bg-[#8465FF] w-full md:w-1/12 flex items-center justify-center">
-                    <P class="text-xl md:text-2xl p-2 uppercase text-white font-semibold writing-normal md:writing-lr" >
+                    <P class="text-xl md:text-2xl p-2 uppercase text-white font-semibold writing-normal md:writing-lr">
                         {{enrolled_event.0.event.parent_SubEventsCategory.parent_EventCategory}}
                     </P>
                 </div>
@@ -147,37 +147,41 @@
                     <div class="flex gap-8">
                         <div>
                             <p class="text-base">Event Type</p>
-                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                            <p
+                                class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 Team
                             </p>
                         </div>
-            
+
                         <div>
                             <p class="text-base">Date</p>
-                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                            <p
+                                class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 {{enrolled_event.0.event.event_date}}
                             </p>
                         </div>
                     </div>
-            
+
                     <div class="flex gap-8">
                         <div class="">
                             <p class="text-base">Venue</p>
-                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                            <p
+                                class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 {{enrolled_event.0.event.venu}}
                             </p>
                         </div>
-            
+
                         <div>
                             <p class="text-base">Teammates</p>
-                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                            <p
+                                class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 {% for m in enrolled_event.1 %}<span>{{m.user.first_name}}, </span>{% endfor %}
                             </p>
                         </div>
                     </div>
-            
+
                 </div>
-            
+
                 <div class="shrink-0 flex flex-col gap-4 items-stretch justify-center p-4">
                     <div class="size-40 overflow-hidden mx-auto">
                         <img src="{{ enrolled_event.0.event.image.url }}" class="aspect-square">
@@ -188,10 +192,11 @@
                         </a>
                     </button>
                 </div>
-            
-                <div class="hidden md:block absolute top-0 bottom-0 right-[30%] w-10 border-[#3D5685]/20 z-10 border-r-4 border-dashed">
+
+                <div
+                    class="hidden md:block absolute top-0 bottom-0 right-[30%] w-10 border-[#3D5685]/20 z-10 border-r-4 border-dashed">
                 </div>
-            
+
                 <div class="hidden md:block absolute -top-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
                 </div>
                 <div class="hidden md:block absolute -bottom-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
@@ -203,49 +208,55 @@
             {% for enrolled_event in is_member %}
             <div class="bg-[#E4E7FF] flex flex-col md:flex-row gap-4 md:gap-4 lg:gap-12 relative">
                 <div class="bg-[#8465FF] w-full md:w-1/12 flex items-center justify-center">
-                    <P class="text-xl md:text-2xl p-2 uppercase text-white font-semibold writing-normal md:writing-lr" >
+                    <P class="text-xl md:text-2xl p-2 uppercase text-white font-semibold writing-normal md:writing-lr">
                         {{enrolled_event.registration.event.parent_SubEventsCategory.parent_EventCategory}}
                     </P>
                 </div>
                 <div class="w-full md:w-11/12 text-xl flex flex-col gap-4 p-4">
-                    <p class="font-bold text-2xl col-span-2">Member of team: {{enrolled_event.registration.team_name}}</p>
+                    <p class="font-bold text-2xl col-span-2">Member of team: {{enrolled_event.registration.team_name}}
+                    </p>
                     <div class="flex gap-8">
                         <div>
                             <p class="text-base">Event Type</p>
-                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                            <p
+                                class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 Team
                             </p>
                         </div>
-            
+
                         <div>
                             <p class="text-base">Date</p>
-                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                            <p
+                                class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 {{enrolled_event.registration.event.event_date}}
                             </p>
                         </div>
                     </div>
-            
+
                     <div class="flex gap-8">
                         <div class="">
                             <p class="text-base">Venue</p>
-                            <p class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
+                            <p
+                                class="font-medium bg-[#3D7485]/15 ps-4 py-2 text-base md:text-2xl pe-8 mt-1 inline-block">
                                 {{enrolled_event.registration.event.venu}}
                             </p>
                         </div>
                     </div>
-            
+
                 </div>
-            
+
                 <div class="shrink-0 flex flex-col gap-4 items-stretch justify-center p-4">
                     <div class="size-40 overflow-hidden mx-auto">
                         <img src="{{ enrolled_event.registration.event.image.url }}" class="aspect-square">
                     </div>
-                    <p class="text-xs text-center">Ask {{enrolled_event.registration.teamleader.first_name}} to unenroll</p>
+                    <p class="text-xs text-center">Ask {{enrolled_event.registration.teamleader.first_name}} to unenroll
+                    </p>
                 </div>
-            
-                <div class="hidden md:block absolute top-0 bottom-0 right-[30%] w-10 border-[#3D5685]/20 z-10 border-r-4 border-dashed">
+
+                <div
+                    class="hidden md:block absolute top-0 bottom-0 right-[30%] w-10 border-[#3D5685]/20 z-10 border-r-4 border-dashed">
                 </div>
-            
+
                 <div class="hidden md:block absolute -top-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
                 </div>
                 <div class="hidden md:block absolute -bottom-2 right-[29.3%]  size-4 rounded-full z-10 bg-black">
@@ -253,38 +264,53 @@
             </div>
             {% endfor %}
 
-           
+
         </div>
     </div>
 
-    <div
-        class="lg:col-span-2 lg:row-span-3 lg:col-start-11 lg:row-start-1 relative bg-gradient-to-b from-[#EC2139] to-[#94291E] hover:shadow-[#94291E] hover:shadow-lg rounded-lg overflow-hidden">
-        <div class="inline-flex gap-1 absolute top-2 right-2 group-hover:right-[50%] duration-300 ease-in-out">
-            <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
-                    fill="white" />
-            </svg>
-            <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
-                    fill="white" />
-            </svg>
-            <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
-                    fill="white" />
-            </svg>
+    <div class="lg:col-span-2 lg:row-span-3 lg:col-start-11 lg:row-start-1 flex flex-col gap-6">
+        <div
+            class="relative bg-gradient-to-b from-[#EC2139] to-[#94291E] hover:shadow-[#94291E] hover:shadow-lg rounded-lg overflow-hidden grow">
+            <div class="inline-flex gap-1 absolute top-2 right-2 group-hover:right-[50%] duration-300 ease-in-out">
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+                <svg class="size-6" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M32.17 27.2661C33.2766 28.3727 33.2766 30.0941 32.17 31.2008C31.6167 31.7541 30.9404 32 30.2027 32C29.4649 32 28.7886 31.7541 28.2353 31.2008L16.9846 19.95L5.73389 31.2008C5.18057 31.7541 4.5043 32 3.76655 32C3.0288 32 2.35252 31.7541 1.79921 31.2008C0.692581 30.0941 0.692581 28.3727 1.79921 27.2661L13.0499 16.0154L1.79921 4.76465C0.692581 3.65802 0.692581 1.9366 1.79921 0.829971C2.90584 -0.276657 4.62726 -0.276657 5.73389 0.829971L16.9846 12.0807L28.2353 0.829971C29.342 -0.276657 31.0634 -0.276657 32.17 0.829971C33.2766 1.9366 33.2766 3.65802 32.17 4.76465L20.9193 16.0154L32.17 27.2661Z"
+                        fill="white" />
+                </svg>
+            </div>
+
+            <div class="absolute bottom-2 right-2">
+                <a href="{% url 'logoutv' %}">
+                    <p class="text-4xl font-Sterion uppercase flex flex-col items-start">
+                        <span>LOG</span>
+                        <span>out</span>
+                    </p>
+                </a>
+            </div>
         </div>
-        <div class="absolute bottom-2 right-2">
-            <a href="{% url 'logoutv' %}">
-                <p class="text-4xl font-Sterion uppercase flex flex-col items-start">
-                    <span>LOG</span>
-                    <span>out</span>
-                </p>
-            </a>
+
+        <div class="text-right h-[10%]">
+            <button onclick="window.history.back()"
+                class=" inline-flex justify-center items-center gap-2 md:text-2xl hover:text-[#8465FF] duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
+                </svg>
+                GO BACK
+            </button>
         </div>
     </div>
+
 
 
 </div>

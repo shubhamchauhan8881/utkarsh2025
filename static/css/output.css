@@ -930,6 +930,10 @@ video {
   margin-top: 2rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1026,6 +1030,11 @@ video {
 .size-full {
   width: 100%;
   height: 100%;
+}
+
+.size-12 {
+  width: 3rem;
+  height: 3rem;
 }
 
 .h-10 {
@@ -1936,6 +1945,14 @@ video {
   padding-top: 1rem;
 }
 
+.pt-1\.5 {
+  padding-top: 0.375rem;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2168,6 +2185,12 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-\[\#00000040\] {
   --tw-shadow-color: #00000040;
   --tw-shadow: var(--tw-shadow-colored);
@@ -2180,6 +2203,11 @@ video {
 
 .shadow-purple {
   --tw-shadow-color: #D300FF;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.shadow-\[\#\] {
+  --tw-shadow-color: #;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -2928,6 +2956,22 @@ input:not([type='file']), select {
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[20\%\] {
+    width: 20%;
+  }
+
+  .lg\:w-\[14\%\] {
+    width: 14%;
+  }
+
+  .lg\:w-\[16\%\] {
+    width: 16%;
+  }
+
+  .lg\:w-\[17\%\] {
+    width: 17%;
   }
 
   .lg\:min-w-\[130\%\] {

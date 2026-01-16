@@ -40,7 +40,7 @@
 
             <div class="flex gap-4 justify-between flex-col lg:flex-row">
 
-                <div class="lg:w-[15%] w-full">
+                <div class="lg:w-[17%] w-full">
                     <div class="lg:inline-block bg-[#CAD0FE] text-black rounded-xl p-6">
                         <div class="flex items-center justify-start gap-4 ">
                             <svg class="size-8" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,13 +58,13 @@
                         </div>
 
                         <ul
-                            class="flex overflow-x-scroll myscrollbar lg:grid lg:grid-cols-2 mt-10 gap-4 afacad w-full ">
+                            class="flex overflow-x-scroll myscrollbar lg:grid lg:grid-cols-2 mt-8 pt-1 gap-4 afacad w-full ">
                             <li>
                                 <a href="{% url 'eventspage' %}">
                                     <button
                                         class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
                                         <div
-                                            class="size-16 p-3 rounded-xl {% if request.path == '/events' %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %} shadow-lg shadow-[#00000040]">
+                                            class="size-16 p-3 rounded-xl {% if request.path == '/events' and not request.GET.filter %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %}">
                                             <svg class="size-full" viewBox="0 0 49 48" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -84,7 +84,7 @@
                                     <button
                                         class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
                                         <div
-                                            class="size-16 p-3 rounded-xl  {% if category.slug in request.path %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %} shadow-lg shadow-[#00000040]">
+                                            class="size-16 p-3 rounded-xl  {% if category.slug in request.path %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %}">
                                             <img src="{% if category.image %} {{category.image.url}} {% endif %}"
                                                 class="aspect-square h-full object-contain" />
                                         </div>
@@ -97,17 +97,20 @@
 
                             <li>
                                 <a href="{% url 'eventspage' %}?filter=solo">
+
                                     <button
                                         class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
-                                        <svg class="size-16" viewBox="0 0 68 68" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="68" height="68" rx="10" fill="#E2E2E4" />
-                                            <path
-                                                d="M34 34C40.6006 34 46 28.5999 46 22C46 15.4001 40.6006 10 34 10C27.3994 10 22 15.4001 22 22C22 28.5999 27.3994 34 34 34ZM34 40C26.0503 40 10 44.0503 10 52V58H58V52C58 44.0503 41.9497 40 34 40Z"
-                                                fill="black" />
-                                        </svg>
-
-                                        <span>Solo</span>
+                                        <div
+                                            class="size-16 p-3 rounded-xl  {% if request.GET.filter == 'solo' %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %}">
+                                            <svg class="size-10" viewBox="0 0 68 68" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="68" height="68" rx="10" fill="none" />
+                                                <path
+                                                    d="M34 34C40.6006 34 46 28.5999 46 22C46 15.4001 40.6006 10 34 10C27.3994 10 22 15.4001 22 22C22 28.5999 27.3994 34 34 34ZM34 40C26.0503 40 10 44.0503 10 52V58H58V52C58 44.0503 41.9497 40 34 40Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </div>
+                                        <span class="break-words">Solo</span>
                                     </button>
                                 </a>
                             </li>
@@ -115,17 +118,20 @@
                                 <a href="{% url 'eventspage' %}?filter=team">
                                     <button
                                         class="inline-flex hover:scale-105 duration-300 flex-col justify-center text-sm items-center gap-0.5">
-                                        <svg class="size-16" viewBox="0 0 68 68" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="68" height="68" rx="10" fill="#E2E2E4" />
-                                            <path
-                                                d="M55.1572 42.6041C49.9835 40.6421 50.2959 41.4294 50.2959 37.7929C50.2959 35.4435 51.4581 36.3058 52.1954 31.8319C52.4829 30.0699 52.7203 31.2446 53.3326 28.4203C53.6576 26.9457 53.1077 26.8332 53.1827 26.1334C53.2452 25.4336 53.3077 24.7963 53.4326 23.3591C53.5826 21.5596 51.983 16.8608 46.2595 16.8608C40.536 16.8608 38.9364 21.5596 39.0864 23.3591C39.1988 24.8088 39.2738 25.4336 39.3363 26.1334C39.3988 26.8332 38.8614 26.9457 39.1863 28.4203C39.7987 31.2446 40.0361 30.0574 40.3235 31.8319C41.0608 36.3058 42.2106 35.456 42.2106 37.7929C42.2106 39.4674 42.5979 40.1673 40.3485 41.2295C41.0234 41.4669 41.8107 41.7543 42.7604 42.1167C49.5586 44.7036 49.3962 47.2154 49.5711 48.4026C49.6961 49.2149 49.7586 55.6882 49.7836 58.0001H61.9929C61.9929 58.0001 61.9929 47.9402 61.8054 46.7655C61.668 45.8408 60.4308 44.6161 55.1572 42.6041Z"
-                                                fill="black" />
-                                            <path
-                                                d="M46.6217 58C46.6217 58 46.6217 56.2379 46.5967 54.201C46.5717 51.8766 46.5093 49.2023 46.3843 48.4025C46.1968 47.2153 44.5973 45.6282 37.8115 43.0414C36.8743 42.6915 36.087 42.404 35.3997 42.1541C31.2382 40.6795 31.5382 40.1921 31.5382 36.1557C31.5382 33.119 33.0378 35.0935 33.9875 29.3325C34.3624 27.0581 34.6623 28.5702 35.4496 24.9336C35.8745 23.0341 35.1622 22.8841 35.2497 21.9719C35.3372 21.0596 35.4247 20.2473 35.5746 18.3853C35.7746 16.0734 33.7126 10 26.3145 10C18.9165 10 16.867 16.0609 17.0544 18.3853C17.2044 20.2473 17.2919 21.0596 17.3919 21.9719C17.4793 22.8841 16.767 23.0216 17.1919 24.9336C17.9917 28.5702 18.2916 27.0581 18.6665 29.3325C19.6163 35.0935 21.1034 33.119 21.1034 36.1557C21.1034 40.8545 21.5158 40.5045 14.83 43.0414C8.04429 45.6282 6.44471 47.2153 6.25726 48.4025C6.00732 49.9146 6.00732 58 6.00732 58H46.6217Z"
-                                                fill="black" />
-                                        </svg>
-                                        <span>Team</span>
+                                        <div
+                                            class="size-16 p-3 rounded-xl  {% if request.GET.filter == 'team' %}bg-[#B7FF64] {% else %}bg-[#E2E2E4]{% endif %}">
+                                            <svg class="size-10" viewBox="0 0 68 68" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="68" height="68" rx="10" fill="none" />
+                                                <path
+                                                    d="M55.1572 42.6041C49.9835 40.6421 50.2959 41.4294 50.2959 37.7929C50.2959 35.4435 51.4581 36.3058 52.1954 31.8319C52.4829 30.0699 52.7203 31.2446 53.3326 28.4203C53.6576 26.9457 53.1077 26.8332 53.1827 26.1334C53.2452 25.4336 53.3077 24.7963 53.4326 23.3591C53.5826 21.5596 51.983 16.8608 46.2595 16.8608C40.536 16.8608 38.9364 21.5596 39.0864 23.3591C39.1988 24.8088 39.2738 25.4336 39.3363 26.1334C39.3988 26.8332 38.8614 26.9457 39.1863 28.4203C39.7987 31.2446 40.0361 30.0574 40.3235 31.8319C41.0608 36.3058 42.2106 35.456 42.2106 37.7929C42.2106 39.4674 42.5979 40.1673 40.3485 41.2295C41.0234 41.4669 41.8107 41.7543 42.7604 42.1167C49.5586 44.7036 49.3962 47.2154 49.5711 48.4026C49.6961 49.2149 49.7586 55.6882 49.7836 58.0001H61.9929C61.9929 58.0001 61.9929 47.9402 61.8054 46.7655C61.668 45.8408 60.4308 44.6161 55.1572 42.6041Z"
+                                                    fill="black" />
+                                                <path
+                                                    d="M46.6217 58C46.6217 58 46.6217 56.2379 46.5967 54.201C46.5717 51.8766 46.5093 49.2023 46.3843 48.4025C46.1968 47.2153 44.5973 45.6282 37.8115 43.0414C36.8743 42.6915 36.087 42.404 35.3997 42.1541C31.2382 40.6795 31.5382 40.1921 31.5382 36.1557C31.5382 33.119 33.0378 35.0935 33.9875 29.3325C34.3624 27.0581 34.6623 28.5702 35.4496 24.9336C35.8745 23.0341 35.1622 22.8841 35.2497 21.9719C35.3372 21.0596 35.4247 20.2473 35.5746 18.3853C35.7746 16.0734 33.7126 10 26.3145 10C18.9165 10 16.867 16.0609 17.0544 18.3853C17.2044 20.2473 17.2919 21.0596 17.3919 21.9719C17.4793 22.8841 16.767 23.0216 17.1919 24.9336C17.9917 28.5702 18.2916 27.0581 18.6665 29.3325C19.6163 35.0935 21.1034 33.119 21.1034 36.1557C21.1034 40.8545 21.5158 40.5045 14.83 43.0414C8.04429 45.6282 6.44471 47.2153 6.25726 48.4025C6.00732 49.9146 6.00732 58 6.00732 58H46.6217Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </div>
+                                        <span class="break-words">Team</span>
                                     </button>
                                 </a>
                             </li>
